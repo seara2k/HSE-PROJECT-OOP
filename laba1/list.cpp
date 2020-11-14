@@ -173,7 +173,13 @@ bool DoubleLinkedList::operator!=(const DoubleLinkedList& other) const {
 ostream& operator<<(ostream& stream, DoubleLinkedList& list) {
 	int n = 0;
 	for (const auto item : list) {
-		stream << ++n << " " << item << endl;
+		++n;
+		if (n == list.list_size) {
+			stream << item;
+		} else {
+			stream << item << endl;
+		}
+
 	}
 	return stream;
 }

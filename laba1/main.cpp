@@ -7,7 +7,7 @@ using namespace std;
 int main() {
 
 	cout << "|||||||||||||||||||||||||||||||||||||||||" << endl;
-	cout << "SIZE CONSTRUCTOR AND SIZE() METHOD TEST AND PRINTLIST()" << endl;
+	cout << "SIZE CONSTRUCTOR, SIZE() METHOD TEST AND PRINTLIST()" << endl;
 	cout << "|||||||||||||||||||||||||||||||||||||||||" << endl;
 	{
 		// Size Constructor and size() method test and printList()
@@ -16,7 +16,7 @@ int main() {
 		printList(test1);
 	}
 	cout << "|||||||||||||||||||||||||||||||||||||||||" << endl;
-	cout << "COPY CONSTRUCTOR, PUSHBACK, PUSHFRONT, OPERATOR==, OPERATOR!=, OPERATOR<<" << endl;
+	cout << "COPY CONSTRUCTOR, PUSHBACK, PUSHFRONT, OPERATOR==, OPERATOR!=, OPERATOR<< AND SIZE" << endl;
 	cout << "|||||||||||||||||||||||||||||||||||||||||" << endl;
 	{
 		// Copy constructor pushBack, pushFront, operator==, operator!=
@@ -30,7 +30,7 @@ int main() {
 		testlist.pushBack(test2);
 		testlist.pushBack(test3);
 
-		cout << testlist;
+		cout << testlist << endl;
 
 		DoubleLinkedList testlist2 = testlist;
 
@@ -43,17 +43,18 @@ int main() {
 		assert(testlist != testlist2);
 
 		DoubleLinkedList testlist3;
-
+		assert(testlist3.size() == 0);
 		testlist3.pushBack(test1);
 		testlist3.pushBack(test1);
 		testlist3.pushBack(test2);
 		testlist3.pushBack(test3);
+		assert(testlist3.size() == 4);
 
 		assert(testlist3 == testlist);
 		assert(!(testlist3 != testlist));
 	}
 	cout << "|||||||||||||||||||||||||||||||||||||||||" << endl;
-	cout << "POPBACK" << endl;
+	cout << "POPBACK AND SIZE" << endl;
 	cout << "|||||||||||||||||||||||||||||||||||||||||" << endl;
 	{
 		//popBack
@@ -65,13 +66,14 @@ int main() {
 		testlist1.pushBack(test1);
 		testlist1.pushBack(test2);
 		testlist1.pushBack(test3);
-
+		assert(testlist1.size() == 3);
 		DoubleLinkedList testlist2;
 
 		testlist2.pushBack(test1);
 		testlist2.pushBack(test2);
 
 		testlist1.popBack();
+		assert(testlist1.size() == 2);
 		assert(testlist1 == testlist2);
 	}
 	cout << "|||||||||||||||||||||||||||||||||||||||||" << endl;
@@ -143,6 +145,7 @@ int main() {
 		DoubleLinkedList test3;
 		result.clearMemory();
 		assert(test3 == result);
+		assert(test3.size() == 0);
 
 		DoubleLinkedList test2;
 		test2 = test;
@@ -189,6 +192,14 @@ int main() {
 		test.pushBack(forth);
 
 		test.dumpToFile("output.txt");
+
+
+		DoubleLinkedList test1;
+		test1.getFromFile("output.txt");
+
+		assert(test1 == test);
+
+
 	}
 
 
