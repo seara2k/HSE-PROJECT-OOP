@@ -37,10 +37,18 @@ int main() {
 		assert(testlist == testlist2);
 		assert(!(testlist != testlist2));
 
+		testlist2.pushBack(test1);
+
+		assert(!(testlist == testlist2));
+		assert(testlist != testlist2);
+
+		testlist2.popBack();
 		testlist.pushFront(test1);
 
 		assert(!(testlist == testlist2));
 		assert(testlist != testlist2);
+
+
 
 		DoubleLinkedList testlist3;
 		assert(testlist3.size() == 0);
