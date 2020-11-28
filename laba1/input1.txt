@@ -1,0 +1,13 @@
+Valine V
+Proline P
+Alanine A
+Serine S
+Leucine L
+Glycine G
+Methionine M
+Isoleucine I
+Cysteine C
+tYrosine
+Fenylalanine
+Threonine T
+Q-tamine
