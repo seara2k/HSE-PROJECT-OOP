@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::refreshAminoList(DoubleLinkedList *input) {
     ui->aminoList->clear();
     for (auto item : *input) {
-        ui->aminoList->addItem(QString::fromStdString(item.getAmino()));
+        ui->aminoList->addItem(QString::fromStdString(item->getAmino()));
     }
     cout << "Refreshed amino" << endl;
 }
@@ -79,14 +79,14 @@ void MainWindow::on_pushBackButton_clicked() {
     if (!input.isEmpty()){
     QStringList input_list = input.split(QString(" "));
     if (input_list.size() == 2) {
-        Amino input_amino(input_list[0].toStdString(), input_list[1].toStdString());
+        Amino* input_amino = new Amino (input_list[0].toStdString(), input_list[1].toStdString());
         int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
         vec[current_number - 1]->pushBack(input_amino);
         refreshAminoList(vec[current_number - 1]);
         refreshNumbersList();
         ui->numbersList->setCurrentRow(current_number - 1);
     } else if (input_list.size() == 1) {
-        UnusualAmino input_amino(input_list[0].toStdString());
+        UnusualAmino* input_amino = new UnusualAmino (input_list[0].toStdString());
         int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
         cout << input_amino << endl;
         vec[current_number - 1]->pushBack(input_amino);
@@ -112,14 +112,14 @@ void MainWindow::on_pushFrontButton_clicked() {
     if (!input.isEmpty()){
     QStringList input_list = input.split(QString(" "));
     if (input_list.size() == 2) {
-        Amino input_amino(input_list[0].toStdString(), input_list[1].toStdString());
+        Amino* input_amino = new Amino (input_list[0].toStdString(), input_list[1].toStdString());
         int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
         vec[current_number - 1]->pushFront(input_amino);
         refreshAminoList(vec[current_number - 1]);
         refreshNumbersList();
         ui->numbersList->setCurrentRow(current_number - 1);
     } else if (input_list.size() == 1) {
-        UnusualAmino input_amino(input_list[0].toStdString());
+        UnusualAmino* input_amino = new UnusualAmino (input_list[0].toStdString());
         int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
         cout << input_amino << endl;
         vec[current_number - 1]->pushFront(input_amino);
@@ -199,6 +199,10 @@ void MainWindow::on_numbersList_itemClicked() {
 }
 
 MainWindow::~MainWindow() {
+    for (size_t i = 0; i < vec.size(); ++i) {
+        delete vec[i];
+    }
     delete ui;
+
 }
 

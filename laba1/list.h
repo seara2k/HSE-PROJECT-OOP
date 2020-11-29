@@ -3,9 +3,10 @@
 #include "amino.h"
 #include <iostream>
 #include "unusualamino.h"
+#include <cassert>
+#include <fstream>
+#include <vector>
 using namespace std;
-
-
 
 class DoubleLinkedList {
   public:
@@ -13,8 +14,8 @@ class DoubleLinkedList {
     DoubleLinkedList(const DoubleLinkedList& other);
     ~DoubleLinkedList();
     void clearMemory();
-    void pushBack(const Amino &amino);
-    void pushFront(const Amino &amino);
+    void pushBack(Amino* amino);
+    void pushFront(Amino* amino);
     void popBack();
     void popFront();
     size_t size() const;
@@ -24,16 +25,16 @@ class DoubleLinkedList {
     bool operator!=(const DoubleLinkedList& other) const;
     friend ostream& operator<<(ostream& stream, DoubleLinkedList& list);
     friend istream& operator>>(istream& stream, DoubleLinkedList& list);
-    Amino &operator[](size_t input_n);
+    Amino* operator[](size_t input_n);
     void dumpToFile(const string& path);
     void getFromFile(const string& path);
   private:
     class Element {
       public:
-        Element(const Amino& amino, Element *prev = nullptr, Element *next = nullptr);
+        Element(Amino* amino, Element *prev = nullptr, Element *next = nullptr);
         Element *prev = nullptr;
         Element *next = nullptr;
-        Amino amino;
+        Amino *amino = nullptr;
     };
     Element *first = nullptr;
     Element *last = nullptr;
@@ -46,7 +47,7 @@ class DoubleLinkedList {
         bool operator!=(const Iterator& other);
         Iterator operator++(int);
         Iterator& operator++();
-        Amino& operator*();
+        Amino* operator*();
     };
     Iterator begin();
     Iterator end();
