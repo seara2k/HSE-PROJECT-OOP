@@ -4,8 +4,9 @@
 #include "people.h"
 
 class Restaurant {
-
-
+public:
+    Restaurant();
+    Restaurant(Restaurant& other);
 	void newVisitor(); // adds a visitor and makes order
 
 
@@ -19,14 +20,14 @@ class Restaurant {
 	void delItem(); // удаление
 	void editItem(); // редактирование
 
-	void openWorkersPanel(); // показывает работников и че они делают (над) каким заказом работают)
-  private:
+    void openWorkersPanel(); // показывает работников и че они делают (над) каким заказом работают
+
+private:
 	Menu menu;
 	People people;
 
-
-
 };
 
-
 #endif // RESTAURANT_H 
+
+// Ресторан
