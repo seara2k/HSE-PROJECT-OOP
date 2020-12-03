@@ -7,7 +7,7 @@
 class MenuItem { //abstract
 
   public:
-	virtual string getName();
+    virtual std::string getName();
 	virtual int getPrice();
 	virtual int getServing() = 0;
 	virtual void setName();
@@ -16,7 +16,7 @@ class MenuItem { //abstract
 
   private:
 	int price;
-	string name;
+    std::string name;
 	int serving;
 
 };

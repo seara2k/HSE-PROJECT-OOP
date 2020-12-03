@@ -2,15 +2,16 @@
 #define PEOPLE_H
 #include <string>
 #include <vector>
-
+#include "visitor.h"
+#include "worker.h"
 
 
 
 
 class People {
 
-	vector<Worker> workers;
-	vector<Visitor> visitors;
+    std::vector<Worker> workers;
+    std::vector<Visitor> visitors;
 
 };
 

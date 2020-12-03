@@ -4,7 +4,7 @@
 
 class Visitor: public Person {
 
-}
+};
 
 
 

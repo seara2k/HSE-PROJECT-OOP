@@ -2,13 +2,15 @@
 #define MENU_H
 #include "drink.h"
 #include "food.h"
-
-
+#include <iostream>
+#include <vector>
 
 class Menu {
+public:
 
-	vector<Food> food;
-	vector<Drink> drinks;
+private:
+    std::vector<Food> food;
+    std::vector<Drink> drinks;
 
 };
 

@@ -2,9 +2,9 @@
 #define DRINK_H
 #include "menuitem.h"
 
-class Drink: public Menuitem {
+class Drink: public MenuItem {
 
-}
+};
 
 
 

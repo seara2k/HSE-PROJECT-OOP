@@ -29,6 +29,4 @@ class Restaurant {
 };
 
 
-
 #endif // RESTAURANT_H 
-

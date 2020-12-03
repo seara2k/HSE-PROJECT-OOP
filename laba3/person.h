@@ -5,20 +5,20 @@
 class Person { // abstract
 
   public:
-	virtual string getName();
-	virtual string getSurname();
-	virtual string getState();
-	virtual string getProf() = 0;
+    virtual std::string getName();
+    virtual std::string getSurname();
+    virtual std::string getState();
+    virtual std::string getProf() = 0;
 	virtual void setName();
 	virtual void setSurmane();
 	virtual void setState();
 	virtual void setProf() = 0;
 
   private:
-	string name;
-	string surname;
-	string state;
-	string prof;
+    std::string name;
+    std::string surname;
+    std::string state;
+    std::string prof;
 
 };
 #endif // PERSON_H
