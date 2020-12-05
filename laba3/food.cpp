@@ -1,6 +1,6 @@
 #include "food.h"
 
-Food::Food(Food& other) {
+Food::Food(const Food& other) {
 	this->name = other.name;
 	this->price = other.price;
 	this->amount = other.amount;

@@ -1,5 +1,5 @@
 #include "drink.h"
-Drink::Drink(Drink& other) {
+Drink::Drink(const Drink& other) {
 	this->name = other.name;
 	this->price = other.price;
 	this->amount = other.amount;
