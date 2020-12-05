@@ -10,7 +10,7 @@ class MenuItem { //abstract
     int getPrice() const;
     void setName(const std::string& name);
     void setPrice(const int& price);
-    virtual std::string getItem() const;
+    virtual std::string getItem() const = 0;
   protected:
     std::string name;
     int price;

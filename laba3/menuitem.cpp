@@ -17,3 +17,4 @@ void MenuItem::setName(const std::string& name) {
 void MenuItem::setPrice(const int& price) {
 	this->price = price;
 }
+
