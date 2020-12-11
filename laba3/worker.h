@@ -3,11 +3,15 @@
 #include "person.h"
 
 class Worker: public Person {
-public:
-    Worker();
-    Worker(Worker& other);
-private:
-    std::string prof; // профессия работника
+  public:
+
+	Worker() {} ;
+	Worker(const Worker& other);
+
+	std::string getProf() const;
+	void setProf(const sdt::string& prof);
+  private:
+	std::string prof; // профессия работника
 };
 
 #endif // WORKER_H

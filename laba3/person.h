@@ -3,19 +3,20 @@
 #include <string>
 
 class Person { // abstract
-public:
-    Person();
-    Person(Person& other);
-    std::string getName();
-    std::string getSurname();
-    virtual std::string getState();
-    virtual std::string getProf() = 0;
-    void setName();
-    void setSurmane();
-	virtual void setState();
-    virtual void setProf() = 0;
+  public:
 
-private:
+    Person() {} ;
+    Person(const Person& other);
+
+    std::string getName() const;
+    std::string getSurname() const;
+    std::string getState() const;
+
+    void setName(const std::string& name);
+    void setSurmane(const std::string& surname);
+    void setState(const std::string& state);
+
+  private:
     std::string name;
     std::string surname;
     std::string state;
@@ -24,4 +25,4 @@ private:
 
 #endif // PERSON_H
 
-//Работник ресторана
+//Работник ресторанаа

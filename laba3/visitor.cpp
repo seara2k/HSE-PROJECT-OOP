@@ -1,17 +1,16 @@
 #include "visitor.h"
 
-Visitor::Visitor() {
+
+
+Visitor::Visitor(const Visitor& other) {
+
 
 }
 
-Visitor::Visitor(Visitor& other) {
+// std::string Visitor::getState() {
 
-}
+// }
 
-std::string Visitor::getState() {
+// void Visitor::setState() {
 
-}
-
-void Visitor::setState() {
-
-}
+// }

@@ -3,12 +3,14 @@
 #include "person.h"
 
 class Visitor: public Person {
-public:
-    Visitor();
-    Visitor(Visitor& other);
-    std::string getState() override;
-    void setState() override;
-private:
+  public:
+
+	Visitor() {};
+	Visitor(const Visitor& other);
+
+	// std::string getState() override;
+	// void setState() override;
+  private:
 
 };
 
