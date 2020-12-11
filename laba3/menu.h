@@ -8,12 +8,16 @@ class Menu {
   public:
 	Menu() {};
 	Menu(const Menu& other);
+	~Menu();
 	std::vector<Food*> getFoods() const;
 	std::vector<Drink*> getDrinks() const;
 	void printMenu() const;
 
 	void addFood(Food *food);
 	void addDrink(Drink *drink);
+
+	void deleteFood(const int &number);
+	void deleteDrink(const int &number);
 
   private:
 	std::vector<Food*> foods;
