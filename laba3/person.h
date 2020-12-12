@@ -1,28 +1,33 @@
 #ifndef PERSON_H
 #define PERSON_H
+
+#include <iostream>
 #include <string>
+using namespace std;
 
 class Person { // abstract
-  public:
+public:
 
-    Person() {} ;
+    Person();
+    Person(const string& name, const string& surname, const string& state);
     Person(const Person& other);
 
-    std::string getName() const;
-    std::string getSurname() const;
-    virtual std::string getState() const;
+    string getName() const;
+    string getSurname() const;
+    string getState() const;
 
-    void setName(const std::string& name);
-    void setSurmane(const std::string& surname);
-    void setState(const std::string& state);
+    void setName(const string& name);
+    void setSurname(const string& surname);
+    virtual void setState(const int& i) = 0;
+    virtual void printInfo() const = 0;
 
-  private:
-    std::string name;
-    std::string surname;
-    std::string state;
+protected:
+    string state;
+
+private:
+    string name;
+    string surname;
 
 };
 
 #endif // PERSON_H
-
-//Работник ресторанаа

@@ -2,10 +2,9 @@
 #include <vector>
 #include <map>
 using namespace std;
-#include "food.h"
-#include "menuitem.h"
-#include "drink.h"
+#include "people.h"
 #include "menu.h"
+#include "restaurant.h"
 int main() {
 	Food fish("name", 10, 20, 30, "ml", 500);
 	Food fish2(fish);
@@ -61,6 +60,41 @@ int main() {
 	menu.addDrink(ptr4);
 	menu.printMenu();
 
+
+    Visitor garik;
+    garik.setName("garik");
+    garik.setName("uebkovich");
+    Worker work1, work2, work3, temp;
+    work1.setName("worker 1");
+    work2.setName("worker 2");
+    work3.setName("worker 3");
+
+    work1.setProf(1);
+    work2.setProf(2);
+    work3.setProf(3);
+
+    work1.setState(1);
+    work2.setState(1);
+    work3.setState(1);
+
+
+    // тестирование Worker
+    People people;
+    people.addWorker(work1);
+    people.addWorker(work2);
+    people.addWorker(work3);
+    people.printWorkers();
+    cout << people.workersNumber() << endl;
+    people.deleteWorker(1);
+    people.printWorkers();
+
+    temp = people.getWorker(1);
+    temp.setSurname("abc");
+    people.setWorker(temp, 1);
+    people.printWorkers();
+    cout << people.workersNumber() << endl;
+
+    Restaurant r;
 
 	return 0;
 }

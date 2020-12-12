@@ -1,19 +1,23 @@
 #ifndef VISITOR_H
 #define VISITOR_H
+
+#include <iostream>
+#include <string>
 #include "person.h"
+using namespace std;
 
 class Visitor: public Person {
   public:
 
-	Visitor() {};
-	Visitor(const Visitor& other);
+    Visitor();
+    Visitor(const string& name, const string& surname, const string& state);
+	Visitor(const Visitor& other);  
 
-	// std::string getState() override;
-	// void setState() override;
+    void setState(const int& i) override;
+    void printInfo() const override;
+
   private:
 
 };
 
 #endif // VISITOR_H 
-
-// Посетитель ресторана

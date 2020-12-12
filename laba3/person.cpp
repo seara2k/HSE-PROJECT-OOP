@@ -1,5 +1,16 @@
 #include "person.h"
 
+Person::Person() {
+    this->name = "";
+    this->surname = "";
+    this->state = "";
+}
+
+Person::Person(const string& n, const string& sn, const string& s) {
+    this->name = n;
+    this->surname = sn;
+    this->state = s;
+}
 
 Person::Person(const Person& other) {
 	this->name = other.name;
@@ -7,24 +18,24 @@ Person::Person(const Person& other) {
 	this->state = other.state;
 }
 
-std::string Person::getName() const {
+string Person::getName() const {
 	return name;
 }
-std::string Person::getSurname() const {
+
+string Person::getSurname() const {
 	return surname;
 }
 
-std::string Person::getState() const {
+string Person::getState() const {
 	return state;
 }
 
-void Person::setName(const std::string& name) {
+void Person::setName(const string& name) {
 	this->name = name;
 }
-void Person::setSurmane(const std::string& surname) {
-	this->surname = name;
+
+void Person::setSurname(const string& surname) {
+    this->surname = surname;
 }
-void Person::setState(const std::string& state) {
-	this->state = state;
-}
+
 

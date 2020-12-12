@@ -7,11 +7,12 @@ class Restaurant {
 public:
     Restaurant();
     Restaurant(Restaurant& other);
-	void newVisitor(); // adds a visitor and makes order
 
-
-	void viewStatus(); // shows активных and ушедших visitors
-	void makeInactive(); // делает посетителя ушедшим
+    void startPanel();
+    void menuPanel();
+    void peoplePanel();
+    void visitorsPanel();
+    void workersPanel();
 
 
 
