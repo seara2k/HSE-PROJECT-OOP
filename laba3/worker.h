@@ -9,7 +9,7 @@ class Worker: public Person {
 	Worker(const Worker& other);
 
 	std::string getProf() const;
-	void setProf(const sdt::string& prof);
+    void setProf(const std::string& prof);
   private:
 	std::string prof; // профессия работника
 };

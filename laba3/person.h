@@ -10,7 +10,7 @@ class Person { // abstract
 
     std::string getName() const;
     std::string getSurname() const;
-    std::string getState() const;
+    virtual std::string getState() const;
 
     void setName(const std::string& name);
     void setSurmane(const std::string& surname);

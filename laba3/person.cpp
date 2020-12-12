@@ -1,7 +1,7 @@
 #include "person.h"
 
 
-Person::Person(Person& other) {
+Person::Person(const Person& other) {
 	this->name = other.name;
 	this->surname = other.surname;
 	this->state = other.state;
@@ -13,7 +13,8 @@ std::string Person::getName() const {
 std::string Person::getSurname() const {
 	return surname;
 }
-virtual std::string Person::getState() const {
+
+std::string Person::getState() const {
 	return state;
 }
 
