@@ -5,18 +5,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow) {
     ui->setupUi(this);
-    add = new AddPersonWindow;
-    Food* test = new Food("name", 10, 20, 30, "ml", 500);
-    Food* test1 = new Food("name1", 100, 20, 30, "lol", 500);
-    Drink* cola = new Drink("name2", 101, 20, 30, "ml");
-    Drink* cola1 = new Drink("name3", 102, 20, 30, "ml");
-    menu.addItem(test);
-    menu.addItem(test1);
-    menu.addItem(cola);
-    menu.addItem(cola1);
-
-    refreshmenuList();
-    refreshitemList(menu.getItems().size() - 1);
 }
 
 void MainWindow::refreshitemList(const int& number) {
@@ -36,11 +24,34 @@ void MainWindow::refreshmenuList() {
     ui->menuList->setCurrentRow( ui->menuList->model()->rowCount() - 1);
 
 }
+
+void MainWindow::on_getButton_clicked() {
+    QString filename = QFileDialog::getOpenFileName(this,
+                       tr("Open menu from txt"), "", tr("Text files (*.txt)"));
+    if (!filename.isEmpty()) {
+        ifstream input(filename.toStdString());
+        if (input)
+            input >> menu;
+        refreshmenuList();
+        refreshitemList(menu.getItems().size() - 1);
+    }
+}
+void MainWindow::on_saveButton_clicked() {
+    if (menu.getItems().size() != 0) {
+        QString filename = QFileDialog::getSaveFileName(this,
+                           tr("Save menu to txt"), "",
+                           tr("Text files (*.txt)"));
+        if (!filename.isEmpty()) {
+            ofstream output(filename.toStdString());
+            output << menu;
+        }
+    }
+}
+
 void MainWindow::on_menuList_itemClicked() {
     int current_number = ui->menuList->currentItem()->text().split("  ")[0].toInt();
     refreshitemList(current_number - 1);
 }
-
 void MainWindow::on_addButton_clicked() {
     QString input1 = ui->menuNameEdit->toPlainText();
 
@@ -68,19 +79,18 @@ void MainWindow::on_deleteButton_clicked() {
         ui->itemList->clear();
     }
 }
-
 void MainWindow::on_changeButton_clicked() {
     QString input1 = ui->changeEdit->toPlainText();
-    if (!(input1.isEmpty() && menu.getItems().size() != 0)) {
+    if (!input1.isEmpty() && menu.getItems().size() != 0) {
         int current_number =  ui->menuList->currentItem()->text().split("  ")[0].toInt();
         int current_field =  ui->itemList->currentItem()->text().split("  ")[0].toInt();
         if (current_field == 1)
             menu.getItem(current_number - 1)->setName(input1.toStdString());
-        else if (current_field == 3)
+        else if (current_field == 3 && input1.toInt() > 0)
             menu.getItem(current_number - 1)->setPrice(input1.toInt());
-        else if (current_field == 4)
+        else if (current_field == 4 && input1.toInt() > 0)
             menu.getItem(current_number - 1)->setAmount(input1.toInt());
-        else if (current_field == 5)
+        else if (current_field == 5 && input1.toInt() > 0)
             menu.getItem(current_number - 1)->setPortionSize(input1.toInt());
         else if (current_field == 6)
             menu.getItem(current_number - 1)->setPortionSizeUnit(input1.toStdString());
@@ -90,6 +100,7 @@ void MainWindow::on_changeButton_clicked() {
         ui->itemList->setCurrentRow(current_field - 1);
     }
 }
+
 void MainWindow::on_pushButton_addPerson_clicked() {
 
 }

@@ -15,6 +15,7 @@ MenuItem::MenuItem(const string& name, const int& price, const int& amount, cons
 	this->portion_size = portion_size;
 	this->portion_size_unit = portion_size_unit;
 }
+
 string MenuItem::getName() const {
 	return name;
 }
@@ -48,10 +49,10 @@ void MenuItem::setPortionSizeUnit(const string& portion_size_unit) {
 }
 
 ostream& operator<<(ostream& stream, const MenuItem& menuitem) {
-	menuitem.print(stream, menuitem);
+	menuitem.print(stream);
 	return stream;
 }
 istream& operator>>(istream& stream, MenuItem& menuitem) {
-	menuitem.read(stream, menuitem);
+	menuitem.read(stream);
 	return stream;
 }

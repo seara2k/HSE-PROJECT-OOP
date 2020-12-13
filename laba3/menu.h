@@ -16,15 +16,20 @@ class Menu {
 	vector<MenuItem*> getItems() const;
 	MenuItem* getItem(const int &number);
 
-	friend ostream& operator<<(ostream& stream, const Menu& menu);
 
 	void addItem(MenuItem* menuitem);
 	void deleteItem(const int &number);
+
+	void getFromFile(const string& path) const;
+
+	friend istream& operator>>(istream& stream, Menu& menu);
+	friend ostream& operator<<(ostream & stream, const Menu & menu);
 
   private:
 	vector<MenuItem*> items;
 
 };
+istream& operator>>(istream& stream, Menu& menu);
 ostream& operator<<(ostream& stream, const Menu& menu);
 #endif // MENU_H
 

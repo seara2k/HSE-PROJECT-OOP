@@ -1,17 +1,18 @@
 #include "drink.h"
-Drink::Drink(const Drink& other) {
-	this->name = other.name;
-	this->price = other.price;
-	this->amount = other.amount;
-	this->portion_size = other.portion_size;
-	this->portion_size_unit = other.portion_size_unit;
-}
+
 Drink::Drink() {
 	this->name = "UNKNOWN";
 	this->price = 0;
 	this->amount = 0;
 	this->portion_size = 0;
 	this->portion_size_unit = "UNKNOWN";
+}
+Drink::Drink(const Drink& other) {
+	this->name = other.name;
+	this->price = other.price;
+	this->amount = other.amount;
+	this->portion_size = other.portion_size;
+	this->portion_size_unit = other.portion_size_unit;
 }
 Drink::Drink(const string& name, const int& price, const int& amount, const int& portion_size, const string& portion_size_unit) {
 	this->name = name;
@@ -20,24 +21,28 @@ Drink::Drink(const string& name, const int& price, const int& amount, const int&
 	this->portion_size = portion_size;
 	this->portion_size_unit = portion_size_unit;
 }
+
 string Drink::getItem() const {
 	return getName() + ' ' + to_string(getPrice()) + ' ' + to_string(getAmount()) + ' ' + to_string(getPortionSize()) + ' ' + getPortionSizeUnit();
 }
 string Drink::getClassType() const {
 	return "DRINK";
 }
-void Drink::print(ostream& stream, const MenuItem& menuitem) const {
-	stream << menuitem.getItem();
+
+void Drink::print(ostream& stream) const {
+	stream << getItem();
 }
-void Drink::read(istream & stream, MenuItem & menuitem) {
+
+void Drink::read(istream & stream) {
 	string new_name;
 	int new_price;
 	int new_amount;
 	int new_portion_size;
 	string new_portion_size_unit;
 	stream >> new_name >> new_price >> new_amount >> new_portion_size >> new_portion_size_unit;
-	menuitem = Drink(new_name, new_price, new_amount, new_portion_size, new_portion_size_unit);
+	*this = Drink(new_name, new_price, new_amount, new_portion_size, new_portion_size_unit);
 }
+
 map<string, string> Drink::getFull() const {
 	map<string, string> temp;
 	temp["1  Name"] = getName();
