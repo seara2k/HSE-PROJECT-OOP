@@ -8,14 +8,14 @@ MenuItem::MenuItem(const MenuItem& other) {
 	this->portion_size_unit = other.portion_size_unit;
 }
 
-MenuItem::MenuItem(const std::string& name, const int& price, const int& amount, const int& portion_size, const std::string& portion_size_unit) {
+MenuItem::MenuItem(const string& name, const int& price, const int& amount, const int& portion_size, const string& portion_size_unit) {
 	this->name = name;
 	this->price = price;
 	this->amount = amount;
 	this->portion_size = portion_size;
 	this->portion_size_unit = portion_size_unit;
 }
-std::string MenuItem::getName() const {
+string MenuItem::getName() const {
 	return name;
 }
 int MenuItem::getPrice() const {
@@ -27,11 +27,11 @@ int MenuItem::getAmount() const {
 int MenuItem::getPortionSize() const {
 	return portion_size;
 }
-std::string MenuItem::getPortionSizeUnit() const {
+string MenuItem::getPortionSizeUnit() const {
 	return portion_size_unit;
 }
 
-void MenuItem::setName(const std::string& name) {
+void MenuItem::setName(const string& name) {
 	this->name = name;
 }
 void MenuItem::setPrice(const int& price) {
@@ -43,6 +43,6 @@ void MenuItem::setAmount(const int& amount) {
 void MenuItem::setPortionSize(const int& portion_size) {
 	this->portion_size = portion_size;
 }
-void MenuItem::setPortionSizeUnit(const std::string& portion_size_unit) {
+void MenuItem::setPortionSizeUnit(const string& portion_size_unit) {
 	this->portion_size_unit = portion_size_unit;
 }

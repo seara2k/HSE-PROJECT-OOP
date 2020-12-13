@@ -1,13 +1,15 @@
 #ifndef DRINK_H
 #define DRINK_H
+#include <string>
 #include "menuitem.h"
+using namespace std;
 
 class Drink: public MenuItem {
   public:
 	Drink() {}; // инициализация
 	Drink(const Drink& other); // копирование
-	Drink(const std::string& name, const int& price, const int& amount, const int& portion_size, const std::string& portion_size_unit);
-	std::string getItem() const override;
+    Drink(const string& name, const int& price, const int& amount, const int& portion_size, const string& portion_size_unit);
+    string getItem() const override;
   private:
 
 };

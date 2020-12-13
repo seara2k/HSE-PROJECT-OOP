@@ -1,15 +1,16 @@
 #ifndef FOOD_H
 #define FOOD_H
+#include <string>
 #include "menuitem.h"
 
 class Food: public MenuItem {
   public:
 	Food() {};
 	Food(const Food& other);
-	Food(const std::string& name, const int& price, const int& amount, const int& portion_size, const std::string& portion_size_unit, const int& time_to_cook);
+    Food(const string& name, const int& price, const int& amount, const int& portion_size, const string& portion_size_unit, const int& time_to_cook);
 	int getTimeToCook() const;
 	void setTimeToCook(const int& time_to_cook);
-	std::string getItem() const override;
+    string getItem() const override;
 
   private:
 	int time_to_cook;

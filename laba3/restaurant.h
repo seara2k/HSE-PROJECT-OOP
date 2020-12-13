@@ -3,16 +3,34 @@
 #include "menu.h"
 #include "people.h"
 
+#ifdef _WIN32
+#define CLEAR "cls"
+#else //In any other OS
+#define CLEAR "clear"
+#endif
+
 class Restaurant {
 public:
     Restaurant();
     Restaurant(Restaurant& other);
 
     void startPanel();
+
     void menuPanel();
+
+
+
     void peoplePanel();
+
     void visitorsPanel();
+    void addVisitorPanel();
+    void editVisitorPanel();
+    void deleteVisitorPanel();
+
     void workersPanel();
+    void addWorkerPanel();
+    void editWorkerPanel();
+    void deleteWorkerPanel();
 
 
 

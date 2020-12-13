@@ -6,10 +6,9 @@ Person::Person() {
     this->state = "";
 }
 
-Person::Person(const string& n, const string& sn, const string& s) {
+Person::Person(const string& n, const string& sn) {
     this->name = n;
     this->surname = sn;
-    this->state = s;
 }
 
 Person::Person(const Person& other) {
@@ -38,4 +37,13 @@ void Person::setSurname(const string& surname) {
     this->surname = surname;
 }
 
-
+bool Person::operator==(const Person &other) const {
+    if ((getName() == other.getName()) &&
+            (getSurname() == other.getSurname()) &&
+            (getState() == other.getState())) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}

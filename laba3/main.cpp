@@ -5,96 +5,81 @@ using namespace std;
 #include "people.h"
 #include "menu.h"
 #include "restaurant.h"
+
+#ifdef _WIN32
+#define CLEAR "cls"
+#else //In any other OS
+#define CLEAR "clear"
+#endif
+
 int main() {
-	Food fish("name", 10, 20, 30, "ml", 500);
-	Food fish2(fish);
-	// cout << fish.getItem() << endl;
-	// cout << fish2.getItem() << endl;
-	// cout << "////////////////////////" << endl;
-	fish.setName("name2");
-	fish.setPrice(100);
-	fish.setAmount(200);
-	fish.setPortionSize(300);
-	fish.setPortionSizeUnit("litres");
-	fish.setTimeToCook(5000);
-	// cout << fish.getItem() << endl;
-	// cout << fish2.getItem() << endl;
-	// cout << "////////////////////////" << endl;
+//	Food fish("name", 10, 20, 30, "ml", 500);
+//	Food fish2(fish);
 
-	// cout <<  "DRINK" << endl;
-	Drink cola("name", 10, 20, 30, "ml");
-	Drink cola2(cola);
-	// cout << cola.getItem() << endl;
-	// cout << cola2.getItem() << endl;
-	// cout << "////////////////////////" << endl;
-	cola.setName("name2");
-	cola.setPrice(100);
-	cola.setAmount(200);
-	cola.setPortionSize(300);
-	cola.setPortionSizeUnit("litres");
-	// cout << cola.getItem() << endl;
-	// cout << cola2.getItem() << endl;
-	// cout << "////////////////////////" << endl;
+//	fish.setName("name2");
+//	fish.setPrice(100);
+//	fish.setAmount(200);
+//	fish.setPortionSize(300);
+//	fish.setPortionSizeUnit("litres");
+//	fish.setTimeToCook(5000);
 
+//    Drink cola("name", 10, 20, 30, "ml");
+//	Drink cola2(cola);
 
-	Food *ptr = &fish;
-	Food *ptr2 = &fish2;
-	Drink *ptr3 = &cola;
-	Drink *ptr4 = &cola2;
-	// cout << "VECTOR" << endl;
-	// std::vector<MenuItem*> test;
-	// test.push_back(ptr);
-	// test.push_back(ptr2);
-	// test.push_back(ptr3);
-	// test.push_back(ptr4);
+//	cola.setName("name2");
+//	cola.setPrice(100);
+//	cola.setAmount(200);
+//	cola.setPortionSize(300);
+//	cola.setPortionSizeUnit("litres");
 
-	// for (const auto &item : test) {
-	// 	cout << item->getItem() << endl;
-	// }
+//	Food *ptr = &fish;
+//	Food *ptr2 = &fish2;
+//	Drink *ptr3 = &cola;
+//	Drink *ptr4 = &cola2;
+
+//    Menu menu;
+//    menu.addFood(ptr);
+//    menu.addFood(ptr2);
+//    menu.addDrink(ptr3);
+//    menu.addDrink(ptr4);
+//    menu.printMenu();
 
 
-	Menu menu;
-	menu.addFood(ptr);
-	menu.addFood(ptr2);
-	menu.addDrink(ptr3);
-	menu.addDrink(ptr4);
-	menu.printMenu();
+//    Visitor Ivan, Owan;
+//    Ivan.setName("Ivan");
+//    Ivan.setName("Ivanov");
+//    Owan.setName("Ivan");
+//    Owan.setName("Ivanov");
+//    if (Owan == Ivan) {
+//        cout << "POGGERS: "<< endl;
+//    }
+//    Worker work1, work2, work3, work4, temp;
+//    work1.setName("worker 1");
+//    work2.setName("worker 2");
+//    work3.setName("worker 3");
+//    work4.setName("worker 3");
+
+//    work1.setProf("1");
+//    work2.setProf("2");
+//    work3.setProf("3");
+//    work4.setProf("3");
+
+//    work1.setState("1");
+//    work2.setState("1");
+//    work3.setState("1");
+//    work4.setState("1");
 
 
-    Visitor garik;
-    garik.setName("garik");
-    garik.setName("uebkovich");
-    Worker work1, work2, work3, temp;
-    work1.setName("worker 1");
-    work2.setName("worker 2");
-    work3.setName("worker 3");
-
-    work1.setProf(1);
-    work2.setProf(2);
-    work3.setProf(3);
-
-    work1.setState(1);
-    work2.setState(1);
-    work3.setState(1);
-
-
-    // тестирование Worker
-    People people;
-    people.addWorker(work1);
-    people.addWorker(work2);
-    people.addWorker(work3);
-    people.printWorkers();
-    cout << people.workersNumber() << endl;
-    people.deleteWorker(1);
-    people.printWorkers();
-
-    temp = people.getWorker(1);
-    temp.setSurname("abc");
-    people.setWorker(temp, 1);
-    people.printWorkers();
-    cout << people.workersNumber() << endl;
+//    // тестирование Worker
+//    People people;
+//    people.addWorker(work1);
+//    people.addWorker(work2);
+//    people.addWorker(work3);
+//    people.addWorker(work4);
+//    people.setWorker(work4, 1);
+//    people.printWorkers();
+//    cout << people.workersNumber() << endl;
 
     Restaurant r;
-
 	return 0;
 }

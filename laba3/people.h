@@ -20,7 +20,6 @@ public:
     void deleteWorker(const int& i); // отсчет с 0
     void printVisitors();
     void printWorkers();
-
     int visitorsNumber() const;
     int workersNumber() const;
     Visitor getVisitor(const int& i) const;

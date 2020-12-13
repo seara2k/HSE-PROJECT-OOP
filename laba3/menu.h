@@ -4,13 +4,15 @@
 #include "drink.h"
 #include "food.h"
 #include <iostream>
+using namespace std;
+
 class Menu {
   public:
 	Menu() {};
 	Menu(const Menu& other);
 	~Menu();
-	std::vector<Food*> getFoods() const;
-	std::vector<Drink*> getDrinks() const;
+    vector<Food*> getFoods() const;
+    vector<Drink*> getDrinks() const;
 	void printMenu() const;
 
 	void addFood(Food *food);
@@ -20,8 +22,8 @@ class Menu {
 	void deleteDrink(const int &number);
 
   private:
-	std::vector<Food*> foods;
-	std::vector<Drink*> drinks;
+    vector<Food*> foods;
+    vector<Drink*> drinks;
 
 };
 

@@ -7,16 +7,14 @@
 using namespace std;
 
 class Visitor: public Person {
-  public:
-
+public:
     Visitor();
     Visitor(const string& name, const string& surname, const string& state);
 	Visitor(const Visitor& other);  
-
-    void setState(const int& i) override;
+    void setState(const string& i) override;
     void printInfo() const override;
 
-  private:
+private:
 
 };
 

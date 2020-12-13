@@ -8,15 +8,12 @@ using namespace std;
 
 class Worker: public Person {
 public:
-
     Worker();
     Worker(const string& name, const string& surname, const string& state, const string& prof);
 	Worker(const Worker& other);
-
     string getProf() const;
-
-    void setProf(const int& prof);
-    void setState(const int &i) override;
+    void setProf(const string& prof);
+    void setState(const string& i) override;
     void printInfo() const override;
 
 private:
@@ -24,5 +21,3 @@ private:
 };
 
 #endif // WORKER_H
-
-// Работник ресторана

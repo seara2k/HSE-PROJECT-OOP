@@ -8,7 +8,7 @@ Food::Food(const Food& other) {
 	this->portion_size_unit = other.portion_size_unit;
 	this->time_to_cook = other.time_to_cook;
 }
-Food::Food(const std::string& name, const int& price, const int& amount, const int& portion_size, const std::string& portion_size_unit, const int& time_to_cook) {
+Food::Food(const string& name, const int& price, const int& amount, const int& portion_size, const string& portion_size_unit, const int& time_to_cook) {
 	this->name = name;
 	this->price = price;
 	this->amount = amount;
@@ -22,6 +22,6 @@ int Food::getTimeToCook() const {
 void Food::setTimeToCook(const int& time_to_cook) {
 	this->time_to_cook = time_to_cook;
 }
-std::string Food::getItem() const {
-	return getName() + ' ' + std::to_string(getPrice()) + ' ' + std::to_string(getAmount()) + ' ' + std::to_string(getPortionSize()) + ' ' + getPortionSizeUnit() + ' ' + std::to_string(getTimeToCook());
+string Food::getItem() const {
+    return getName() + ' ' + to_string(getPrice()) + ' ' + to_string(getAmount()) + ' ' + to_string(getPortionSize()) + ' ' + getPortionSizeUnit() + ' ' + to_string(getTimeToCook());
 }

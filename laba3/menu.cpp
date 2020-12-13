@@ -14,18 +14,18 @@ Menu::~Menu() {
 		delete item;
 	}
 }
-std::vector<Food*> Menu::getFoods() const {
+vector<Food*> Menu::getFoods() const {
 	return foods;
 }
-std::vector<Drink*> Menu::getDrinks() const {
+vector<Drink*> Menu::getDrinks() const {
 	return drinks;
 }
 void Menu::printMenu() const {
 	for (const auto &item : getFoods()) {
-		std::cout << item->getItem() << std::endl;
+        cout << item->getItem() << endl;
 	}
 	for (const auto &item : getDrinks()) {
-		std::cout << item->getItem() << std::endl;
+        cout << item->getItem() << endl;
 	}
 }
 

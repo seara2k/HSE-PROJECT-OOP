@@ -6,7 +6,8 @@ Worker::Worker() :
 }
 
 Worker::Worker(const string& n, const string& sn, const string& s, const string& p) :
-    Person(n, sn, s) {
+    Person(n, sn) {
+    setState(s);
     this->prof = p;
 }
 
@@ -18,20 +19,24 @@ Worker::Worker(const Worker& other) :
 std::string Worker::getProf() const {
 	return prof;
 }
-void  Worker::setProf(const int& prof) {
-    if (prof == 1) {
+
+void  Worker::setProf(const string& prof) {
+    if (prof == "1") {
         this->prof = "Cooker";
     }
-    else if (prof == 2) {
+    else if (prof == "2") {
         this->prof = "Waiter";
     }
-    else if (prof == 3) {
+    else if (prof == "3") {
         this->prof = "Cleaner";
+    }
+    else {
+        cout << "Error: incorrect index";
     }
 }
 
-void Worker::setState(const int &i) {
-    if (i == 1) {
+void Worker::setState(const string& i) {
+    if (i == "1") {
         if (prof == "Cooker") {
             this->state = "is cooking orders";
         }
@@ -41,12 +46,18 @@ void Worker::setState(const int &i) {
         else if (prof == "Cleaner") {
             this->state = "is cleaning the restaurant";
         }
+        else {
+            cout << "Error: you should define prof berofe defining state";
+        }
     }
-    else if (i == 2) {
+    else if (i == "2") {
         this->state = "is chilling";
     }
-    else if (i == 3) {
+    else if (i == "3") {
         this->state = "is not at work";
+    }
+    else {
+        cout << "Error: incorrect index";
     }
 }
 
