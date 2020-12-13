@@ -1,12 +1,13 @@
 TEMPLATE = app
 CONFIG += console c++11
 CONFIG -= app_bundle
-CONFIG -= qt
 
 SOURCES += \
+    addpersonwindow.cpp \
     drink.cpp \
     food.cpp \
     main.cpp \
+    mainwindow.cpp \
     menu.cpp \
     menuitem.cpp \
     people.cpp \
@@ -16,8 +17,10 @@ SOURCES += \
     worker.cpp
 
 HEADERS += \
+    addpersonwindow.h \
     drink.h \
     food.h \
+    mainwindow.h \
     menu.h \
     menuitem.h \
     people.h \
@@ -26,3 +29,9 @@ HEADERS += \
     visitor.h \
     worker.h
 		
+
+QT += widgets
+
+FORMS += \
+    addpersonwindow.ui \
+    mainwindow.ui
