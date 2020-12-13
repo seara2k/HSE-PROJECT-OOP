@@ -5,14 +5,11 @@ using namespace std;
 #include "people.h"
 #include "menu.h"
 #include "restaurant.h"
+#include "mainwindow.h"
+#include <QApplication>
 
-#ifdef _WIN32
-#define CLEAR "cls"
-#else //In any other OS
-#define CLEAR "clear"
-#endif
 
-int main() {
+int main(int argc, char *argv[]) {
 //	Food fish("name", 10, 20, 30, "ml", 500);
 //	Food fish2(fish);
 
@@ -80,26 +77,29 @@ int main() {
 //    people.printWorkers();
 //    cout << people.workersNumber() << endl;
 
-    int index;
-    Restaurant r;
-    do {
-        index = r.startPanel();
-        if (index == 1) {
-            //r.menuPanel();
-            cout << "1\n\n";
-        }
-        else if (index == 2) {
-            cout << "2\n\n";
-            //r.peoplePanel();
-        }
-        else if (index == 3) {
-            break;
-        }
-        else {
-            cout << "Error: wrong index entered\n\n";
-        }
+//    int index;
+//    Restaurant r;
+//    do {
+//        index = r.startPanel();
+//        if (index == 1) {
+//            //r.menuPanel();
+//            cout << "1\n\n";
+//        }
+//        else if (index == 2) {
+//            cout << "2\n\n";
+//            //r.peoplePanel();
+//        }
+//        else if (index == 3) {
+//            break;
+//        }
+//        else {
+//            cout << "Error: wrong index entered\n\n";
+//        }
 
-    } while (index != 3);
+//    } while (index != 3);
 
-	return 0;
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }
