@@ -2,7 +2,6 @@
 
 Restaurant::Restaurant() {
     system(CLEAR);
-    startPanel();
 }
 
 bool is_number(const string& s) {
@@ -11,7 +10,7 @@ bool is_number(const string& s) {
     return !s.empty() && it == s.end();
 }
 
-void Restaurant::startPanel() {
+int Restaurant::startPanel() {
     string action;
     cout << "MAIN PANEL\n" << endl;
     cout << "Choose the action:" << endl;
@@ -21,25 +20,18 @@ void Restaurant::startPanel() {
     cin >> action;
     if (action == "1") {
         system(CLEAR);
-        menuPanel();
+        return(1);
     } else if (action == "2") {
         system(CLEAR);
-        peoplePanel();
+        return(2);
     } else if (action == "3") {
-        exit(0);
+        system(CLEAR);
+        return(3);
     } else {
         system(CLEAR);
-        cout << "Error: wrong index entered" << endl << endl;
-        startPanel();
+        return(4);
     }
-
 }
-
-
-
-
-
-
 
 
 void Restaurant::menuPanel() {
@@ -87,13 +79,13 @@ void Restaurant::addMenuItemPanel() {
         Food temp;
         cin >> temp;
         Food* new_food = new Food(temp);
-        menu.additem(new_food);
+        menu.addItem(new_food);
 
     } else if (action == "2") {
         Food temp;
         cin >> temp;
         Food* new_food = new Food(temp);
-        menu.additem(new_food);
+        menu.addItem(new_food);
 
         startPanel();
     } else {

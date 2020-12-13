@@ -80,6 +80,26 @@ int main() {
 //    people.printWorkers();
 //    cout << people.workersNumber() << endl;
 
+    int index;
     Restaurant r;
+    do {
+        index = r.startPanel();
+        if (index == 1) {
+            //r.menuPanel();
+            cout << "1\n\n";
+        }
+        else if (index == 2) {
+            cout << "2\n\n";
+            //r.peoplePanel();
+        }
+        else if (index == 3) {
+            break;
+        }
+        else {
+            cout << "Error: wrong index entered\n\n";
+        }
+
+    } while (index != 3);
+
 	return 0;
 }

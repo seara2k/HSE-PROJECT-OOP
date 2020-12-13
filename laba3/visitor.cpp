@@ -36,3 +36,7 @@ void Visitor::setState(const string& i) {
 void Visitor::printInfo() const {
     cout << getName() << " " << getSurname() << " " << getState() << endl;
 }
+
+string Visitor::getClassType() const {
+    return "Visitor";
+}

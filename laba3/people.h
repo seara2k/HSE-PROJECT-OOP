@@ -6,6 +6,7 @@
 #include <vector>
 #include "visitor.h"
 #include "worker.h"
+using namespace std;
 
 class People {
 public:
@@ -26,8 +27,8 @@ public:
     Worker getWorker(const int& i) const;
 
 private:
-    std::vector<Worker> workers;
-    std::vector<Visitor> visitors;
+    vector<Worker> workers;
+    vector<Visitor> visitors;
 
 };
 

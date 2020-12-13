@@ -64,3 +64,7 @@ void Worker::setState(const string& i) {
 void Worker::printInfo() const {
     cout << getProf() << " " << getName() << " " << getSurname() << " " << getState() << endl;
 }
+
+string Worker::getClassType() const {
+    return "Worker";
+}

@@ -13,6 +13,7 @@ public:
 	Visitor(const Visitor& other);  
     void setState(const string& i) override;
     void printInfo() const override;
+    string getClassType() const override;
 
 private:
 

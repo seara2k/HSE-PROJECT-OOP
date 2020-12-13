@@ -14,7 +14,7 @@ public:
     Restaurant();
     Restaurant(Restaurant& other);
 
-    void startPanel();
+    int startPanel();
 
     void menuPanel();
 
@@ -31,7 +31,7 @@ public:
     void addWorkerPanel();
     void editWorkerPanel();
     void deleteWorkerPanel();
-
+    void addMenuItemPanel();
 
 
 	void openMenuPanel(); // opens menu panel for editing menu
