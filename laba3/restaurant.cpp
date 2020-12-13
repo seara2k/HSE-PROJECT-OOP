@@ -1,11 +1,11 @@
 #include "restaurant.h"
 
 Restaurant::Restaurant() {
+    system(CLEAR);
     startPanel();
 }
 
-bool is_number(const string& s)
-{
+bool is_number(const string& s) {
     std::string::const_iterator it = s.begin();
     while (it != s.end() && std::isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
@@ -15,22 +15,19 @@ void Restaurant::startPanel() {
     string action;
     cout << "MAIN PANEL\n" << endl;
     cout << "Choose the action:" << endl;
-    cout << "1 - manage menu (not working)" << endl;
+    cout << "1 - view menu" << endl;
     cout << "2 - manage people" << endl;
     cout << "3 - exit from program" << endl;
     cin >> action;
     if (action == "1") {
         system(CLEAR);
         menuPanel();
-    }
-    else if (action == "2") {
+    } else if (action == "2") {
         system(CLEAR);
         peoplePanel();
-    }
-    else if (action == "3") {
+    } else if (action == "3") {
         exit(0);
-    }
-    else {
+    } else {
         system(CLEAR);
         cout << "Error: wrong index entered" << endl << endl;
         startPanel();
@@ -38,11 +35,103 @@ void Restaurant::startPanel() {
 
 }
 
+
+
+
+
+
+
+
 void Restaurant::menuPanel() {
+    Food* test = new Food("name", 10, 20, 30, "ml", 500);
+    Food* test1 = new Food("name", 10, 20, 30, "lol", 500);
+    Drink* cola = new Drink("name", 10, 20, 30, "ml");
+    Drink* cola1 = new Drink("name", 10, 20, 30, "ml");
+    menu.addItem(test);
+    menu.addItem(test1);
+    menu.addItem(cola);
+    menu.addItem(cola1);
+    cout << menu << endl;
     string action;
     cout << "MENU MANAGEMENT PANEL\n" << endl;
     cout << "Choose the action:" << endl;
+    cout << "1 - add item" << endl;
+    cout << "2 - delete item" << endl;
+    cout << "3 - change item" << endl;
+    cout << "4 - return to main panel" << endl;
+    cin >> action;
+    if (action == "1") {
+        system(CLEAR);
+
+    } else if (action == "2") {
+
+        startPanel();
+    } else {
+        system(CLEAR);
+        cout << "Error: wrong index entered" << endl << endl;
+        peoplePanel();
+    }
+
 }
+
+void Restaurant::addMenuItemPanel() {
+    system(CLEAR);
+    cout << menu << endl;
+    string action;
+    cout << "ADD MENU ITEM\n" << endl;
+    cout << "Choose the action:" << endl;
+    cout << "1 - add food" << endl;
+    cout << "2 - add drink" << endl;
+    cout << "3 - back" << endl;
+    if (action == "1") {
+        Food temp;
+        cin >> temp;
+        Food* new_food = new Food(temp);
+        menu.additem(new_food);
+
+    } else if (action == "2") {
+        Food temp;
+        cin >> temp;
+        Food* new_food = new Food(temp);
+        menu.additem(new_food);
+
+        startPanel();
+    } else {
+        system(CLEAR);
+        cout << "Error: wrong index entered" << endl << endl;
+        peoplePanel();
+    }
+
+}
+// void Restaurant::itemsPanel() {
+
+
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void Restaurant::peoplePanel() {
     string action;
@@ -55,16 +144,13 @@ void Restaurant::peoplePanel() {
     if (action == "1") {
         system(CLEAR);
         visitorsPanel();
-    }
-    else if (action == "2") {
+    } else if (action == "2") {
         system(CLEAR);
         workersPanel();
-    }
-    else if (action == "3") {
+    } else if (action == "3") {
         system(CLEAR);
         startPanel();
-    }
-    else {
+    } else {
         system(CLEAR);
         cout << "Error: wrong index entered" << endl << endl;
         peoplePanel();
@@ -82,24 +168,19 @@ void Restaurant::visitorsPanel() {
         cout << "4 - return to people management panel" << endl;
         cout << endl << "visitors list:" << endl;
         people.printVisitors();
-    }
-    else {
+    } else {
         cout << "4 - return to people management panel" << endl;
     }
     cin >> action;
     if (action == "1") {
         addVisitorPanel();
-    }
-    else if ((action == "2") && (people.visitorsNumber() != 0)) {
+    } else if ((action == "2") && (people.visitorsNumber() != 0)) {
         //editVisitorPanel();
-    }
-    else if ((action == "3") && (people.visitorsNumber() != 0)) {
+    } else if ((action == "3") && (people.visitorsNumber() != 0)) {
         //deleteVisitorPanel();
-    }
-    else if (action == "4") {
+    } else if (action == "4") {
         peoplePanel();
-    }
-    else {
+    } else {
         system(CLEAR);
         cout << "Error: wrong index entered" << endl << endl;
         visitorsPanel();
@@ -113,18 +194,17 @@ void Restaurant::addVisitorPanel() {
     cout << "surname >> ";
     cin >> surname;
     cout << "state:\n"
-            "1 if visitor is waiting for waiter\n"
-            "2 if visitor is waiting for order\n"
-            "3 if visitor is eating\n"
-            "4 if visitor is paying\n"
-            ">> ";
+         "1 if visitor is waiting for waiter\n"
+         "2 if visitor is waiting for order\n"
+         "3 if visitor is eating\n"
+         "4 if visitor is paying\n"
+         ">> ";
     cin >> state;
     system(CLEAR);
     Visitor tmp(name, surname, state);
     if (tmp.getState() != "") {
         people.addVisitor(tmp);
-    }
-    else {
+    } else {
         cout << "Error while adding new visitor\n\n";
     }
     visitorsPanel();
@@ -137,15 +217,15 @@ void Restaurant::editVisitorPanel() {
     people.printVisitors();
     cout << "enter the index of visitor you want to change\n>> ";
     cin >> tmp;
-    if(is_number(tmp) && (0 <= stoi(tmp)) && (stoi(tmp) < people.visitorsNumber())) {
+    if (is_number(tmp) && (0 <= stoi(tmp)) && (stoi(tmp) < people.visitorsNumber())) {
         Visitor old = people.getVisitor(stoi(tmp));
         cout << "What do you want to change:"
-                "1 - name"
-                "2 - surname"
-                "3 - state"
-                ">> ";
+             "1 - name"
+             "2 - surname"
+             "3 - state"
+             ">> ";
         cin >> tmp;
-        switch (stoi(tmp)){
+        switch (stoi(tmp)) {
 
         }
     }
@@ -167,24 +247,19 @@ void Restaurant::workersPanel() {
         cout << "4 - return to people management panel" << endl;
         cout << endl << "workers list:" << endl;
         people.printWorkers();
-    }
-    else {
+    } else {
         cout << "4 - return to people management panel" << endl;
     }
     cin >> action;
     if (action == "1") {
         //addWorkerPanel();
-    }
-    else if ((action == "2") && (people.workersNumber() != 0)) {
+    } else if ((action == "2") && (people.workersNumber() != 0)) {
         //editWorkerPanel();
-    }
-    else if ((action == "3") && (people.workersNumber() != 0)) {
+    } else if ((action == "3") && (people.workersNumber() != 0)) {
         //deleteWorkerPanel();
-    }
-    else if (action == "4") {
+    } else if (action == "4") {
         peoplePanel();
-    }
-    else {
+    } else {
         system(CLEAR);
         cout << "Error: wrong index entered" << endl << endl;
         workersPanel();
@@ -198,17 +273,17 @@ void Restaurant::addWorkerPanel() {
     cout << "surname >> ";
     cin >> surname;
     cout << "prof:"
-            "1 if cooker"
-            "2 if waiter"
-            "3 if cleaner"
-            ">> ";
+         "1 if cooker"
+         "2 if waiter"
+         "3 if cleaner"
+         ">> ";
     cin >> prof;
     cout << "state: "
-            "1 if visitor is waiting for waiter"
-            "2 if visitor is waiting for order"
-            "3 if visitor is eating"
-            "4 if visitor is paying"
-            ">> ";
+         "1 if visitor is waiting for waiter"
+         "2 if visitor is waiting for order"
+         "3 if visitor is eating"
+         "4 if visitor is paying"
+         ">> ";
     cin >> state;
     Worker tmp(name, surname, state, prof);
     people.addWorker(tmp);

@@ -2,6 +2,7 @@
 #define MENU_H
 #include <vector>
 #include "drink.h"
+#include "menuitem.h"
 #include "food.h"
 #include <iostream>
 using namespace std;
@@ -11,22 +12,20 @@ class Menu {
 	Menu() {};
 	Menu(const Menu& other);
 	~Menu();
-    vector<Food*> getFoods() const;
-    vector<Drink*> getDrinks() const;
-	void printMenu() const;
 
-	void addFood(Food *food);
-	void addDrink(Drink *drink);
+	vector<MenuItem*> getItems() const;
+	MenuItem* getItem(const int &number);
 
-	void deleteFood(const int &number);
-	void deleteDrink(const int &number);
+	friend ostream& operator<<(ostream& stream, const Menu& menu);
+
+	void addItem(MenuItem* menuitem);
+	void deleteItem(const int &number);
 
   private:
-    vector<Food*> foods;
-    vector<Drink*> drinks;
+	vector<MenuItem*> items;
 
 };
-
+ostream& operator<<(ostream& stream, const Menu& menu);
 #endif // MENU_H
 
 // Меню
