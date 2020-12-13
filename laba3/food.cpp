@@ -30,7 +30,7 @@ string Food::getClassType() const {
 }
 
 void Food::print(ostream& stream, const MenuItem& menuitem) const {
-	stream << getItem();
+    stream << menuitem.getItem();
 }
 void Food::read(istream& stream, MenuItem& menuitem) {
 	string new_name;
@@ -41,4 +41,15 @@ void Food::read(istream& stream, MenuItem& menuitem) {
 	int new_time_to_cook;
 	stream >> new_name >> new_price >> new_amount >> new_portion_size >> new_portion_size_unit >> new_time_to_cook;
 	menuitem = Food(new_name, new_price, new_amount, new_portion_size, new_portion_size_unit, new_time_to_cook);
+}
+map<string,string> Food::getFull() const {
+    map<string,string> temp;
+    temp["1 Name"] = getName();
+    temp["2 Type"] = getClassType();
+    temp["3 Price"] = to_string(getPrice());
+    temp["4 Amount"] = to_string(getAmount());
+    temp["5 Portion Size"] = to_string(getPortionSize());
+    temp["6 Portion Size Unit"] = getPortionSizeUnit();
+    temp["7 Time To Cook"] = to_string(getTimeToCook());
+    return temp;
 }

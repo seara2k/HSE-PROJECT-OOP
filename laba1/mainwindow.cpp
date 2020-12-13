@@ -75,66 +75,64 @@ void MainWindow::on_deleteButton_clicked() {
 }
 void MainWindow::on_pushBackButton_clicked() {
     if (vec.size() != 0) {
-    QString input = ui->aminoInput->toPlainText();
-    if (!input.isEmpty()){
-    QStringList input_list = input.split(QString(" "));
-    if (input_list.size() == 2) {
-        Amino* input_amino = new Amino (input_list[0].toStdString(), input_list[1].toStdString());
-        int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
-        vec[current_number - 1]->pushBack(input_amino);
-        refreshAminoList(vec[current_number - 1]);
-        refreshNumbersList();
-        ui->numbersList->setCurrentRow(current_number - 1);
-    } else if (input_list.size() == 1) {
-        UnusualAmino* input_amino = new UnusualAmino (input_list[0].toStdString());
-        int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
-        cout << input_amino << endl;
-        vec[current_number - 1]->pushBack(input_amino);
-        refreshAminoList(vec[current_number - 1]);
-        refreshNumbersList();
-        ui->numbersList->setCurrentRow(current_number - 1);
+        QString input = ui->aminoInput->toPlainText();
+        if (!input.isEmpty()) {
+            QStringList input_list = input.split(QString(" "));
+            if (input_list.size() == 2) {
+                Amino* input_amino = new Amino (input_list[0].toStdString(), input_list[1].toStdString());
+                int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
+                vec[current_number - 1]->pushBack(input_amino);
+                refreshAminoList(vec[current_number - 1]);
+                refreshNumbersList();
+                ui->numbersList->setCurrentRow(current_number - 1);
+            } else if (input_list.size() == 1) {
+                UnusualAmino* input_amino = new UnusualAmino (input_list[0].toStdString());
+                int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
+                cout << input_amino << endl;
+                vec[current_number - 1]->pushBack(input_amino);
+                refreshAminoList(vec[current_number - 1]);
+                refreshNumbersList();
+                ui->numbersList->setCurrentRow(current_number - 1);
+            } else {
+                ui->aminoInput->setText("Invalid amino");
+                cout << "Amino can only be a word + symbol or Unusual amino that is one word" << endl;
+            }
+        } else {
+            cout << "Empty input" << endl;
+        }
     } else {
-        ui->aminoInput->setText("Invalid amino");
-        cout << "Amino can only be a word + symbol or Unusual amino that is one word" << endl;
-    }
-    } else{
-        cout << "Empty input" << endl;
-    }
-    }
-    else {
         cout << "No list available" << endl;
     }
 }
 
 void MainWindow::on_pushFrontButton_clicked() {
     if (vec.size() != 0) {
-    QString input = ui->aminoInput->toPlainText();
-    if (!input.isEmpty()){
-    QStringList input_list = input.split(QString(" "));
-    if (input_list.size() == 2) {
-        Amino* input_amino = new Amino (input_list[0].toStdString(), input_list[1].toStdString());
-        int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
-        vec[current_number - 1]->pushFront(input_amino);
-        refreshAminoList(vec[current_number - 1]);
-        refreshNumbersList();
-        ui->numbersList->setCurrentRow(current_number - 1);
-    } else if (input_list.size() == 1) {
-        UnusualAmino* input_amino = new UnusualAmino (input_list[0].toStdString());
-        int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
-        cout << input_amino << endl;
-        vec[current_number - 1]->pushFront(input_amino);
-        refreshAminoList(vec[current_number - 1]);
-        refreshNumbersList();
-        ui->numbersList->setCurrentRow(current_number - 1);
+        QString input = ui->aminoInput->toPlainText();
+        if (!input.isEmpty()) {
+            QStringList input_list = input.split(QString(" "));
+            if (input_list.size() == 2) {
+                Amino* input_amino = new Amino (input_list[0].toStdString(), input_list[1].toStdString());
+                int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
+                vec[current_number - 1]->pushFront(input_amino);
+                refreshAminoList(vec[current_number - 1]);
+                refreshNumbersList();
+                ui->numbersList->setCurrentRow(current_number - 1);
+            } else if (input_list.size() == 1) {
+                UnusualAmino* input_amino = new UnusualAmino (input_list[0].toStdString());
+                int current_number =  ui->numbersList->currentItem()->text().split(" ")[0].toInt();
+                cout << input_amino << endl;
+                vec[current_number - 1]->pushFront(input_amino);
+                refreshAminoList(vec[current_number - 1]);
+                refreshNumbersList();
+                ui->numbersList->setCurrentRow(current_number - 1);
+            } else {
+                ui->aminoInput->setText("Invalid amino");
+                cout << "Amino can only be a word + symbol or Unusual amino that is one word" << endl;
+            }
+        } else {
+            cout << "Empty input" << endl;
+        }
     } else {
-        ui->aminoInput->setText("Invalid amino");
-        cout << "Amino can only be a word + symbol or Unusual amino that is one word" << endl;
-    }
-    } else{
-        cout << "Empty input" << endl;
-    }
-    }
-    else {
         cout << "No list available" << endl;
     }
 }
@@ -174,18 +172,17 @@ void MainWindow::on_popFrontButton_clicked() {
 void MainWindow::on_sumButton_clicked() {
     QString input1 = ui->addingValue1textEdit->toPlainText();
     QString input2 = ui->addingValue2textEdit->toPlainText();
-    if (input1.isEmpty() || input1.isEmpty()){
+    if (input1.isEmpty() || input1.isEmpty()) {
         cout << "No input number" << endl;
-    }
-    else {
+    } else {
         int number1 = input1.toInt();
         int number2 = input2.toInt();
-        if (number1 != 0 && number2 != 0 && number1 < vec.size() + 1 && number2 < vec.size() + 1 ){
-    DoubleLinkedList *temp = new DoubleLinkedList();
-    *temp = *(vec[number1 - 1]) + *(vec[number2 - 1]);
-    vec.push_back(temp);
-    refreshAminoList(temp);
-    refreshNumbersList();
+        if (number1 != 0 && number2 != 0 && number1 < vec.size() + 1 && number2 < vec.size() + 1 ) {
+            DoubleLinkedList *temp = new DoubleLinkedList();
+            *temp = *(vec[number1 - 1]) + *(vec[number2 - 1]);
+            vec.push_back(temp);
+            refreshAminoList(temp);
+            refreshNumbersList();
         } else {
             cout << "Bad number" << endl;
         }

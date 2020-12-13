@@ -31,19 +31,6 @@ string MenuItem::getPortionSizeUnit() const {
 	return portion_size_unit;
 }
 
-// void MenuItem::print(ostream& stream, const MenuItem& menuitem) const {
-// 	stream << getName() + ' ' + to_string(getPrice()) + ' ' + to_string(getAmount()) + ' ' + to_string(getPortionSize()) + ' ' + getPortionSizeUnit();
-// }
-// void MenuItem::read(istream& stream, MenuItem& menuitem) {
-// 	string new_name;
-// 	int new_price;
-// 	int new_amount;
-// 	int new_portion_size;
-// 	string new_portion_size_unit;
-// 	stream >> new_name >> new_price >> new_amount >> new_portion_size >> new_portion_size_unit;
-// 	menuitem = MenuItem(new_name, new_price, new_amount, new_portion_size, new_portion_size_unit);
-// }
-
 void MenuItem::setName(const string& name) {
 	this->name = name;
 }

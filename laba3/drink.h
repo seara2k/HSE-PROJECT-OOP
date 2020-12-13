@@ -13,6 +13,7 @@ class Drink: public MenuItem {
 	string getClassType() const override;
 	void print(ostream& stream, const MenuItem& menuitem) const override;
 	void read(istream& stream, MenuItem& menuitem) override;
+    map<string,string> getFull() const override;
   private:
 
 };

@@ -2,6 +2,7 @@
 #define MENUITEM_H
 #include <string>
 #include <iostream>
+#include <map>
 using namespace std;
 
 class MenuItem { //abstract
@@ -25,6 +26,7 @@ class MenuItem { //abstract
     void setPortionSize(const int& portion_size);
     void setPortionSizeUnit(const string& portion_size_unit);
 
+    virtual map<string,string> getFull() const = 0;
     virtual string getItem() const = 0;
     virtual string getClassType() const = 0;
 
