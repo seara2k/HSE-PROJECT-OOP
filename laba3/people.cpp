@@ -16,8 +16,7 @@ void People::addWorker(Worker &new_) {
     if (flag) {
         cout << "Error: this person is already exists" << endl;
         temp.printInfo();
-    }
-    else {
+    } else {
         this->workers.push_back(new_);
     }
 }
@@ -34,8 +33,7 @@ void People::addVisitor(Visitor &new_) {
     if (flag) {
         cout << "Error: this person is already exists" << endl;
         temp.printInfo();
-    }
-    else {
+    } else {
         this->visitors.push_back(new_);
     }
 }
@@ -52,8 +50,7 @@ void People::setVisitor(Visitor &new_, const int &i) {
     if (flag) {
         cout << "Error: this person is already exists" << endl;
         temp.printInfo();
-    }
-    else {
+    } else {
         visitors[i] = new_;
     }
 }
@@ -70,8 +67,7 @@ void People::setWorker(Worker &new_, const int &i) {
     if (flag) {
         cout << "Error: this person is already exists" << endl;
         temp.printInfo();
-    }
-    else {
+    } else {
         workers[i] = new_;
     }
 }
@@ -80,8 +76,7 @@ void People::deleteVisitor(const int& i) {
     int size = visitors.size();
     if ((0 <= i) && (i < size)) {
         visitors.erase(visitors.begin() + i);
-    }
-    else {
+    } else {
         cout << "Error: incorrect id";
     }
 }
@@ -90,8 +85,7 @@ void People::deleteWorker(const int& i) {
     int size = workers.size();
     if ((0 <= i) && (i < size)) {
         workers.erase(workers.begin() + i);
-    }
-    else {
+    } else {
         cout << "Error: incorrect id";
     }
 }

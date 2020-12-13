@@ -9,7 +9,7 @@
 using namespace std;
 
 class People {
-public:
+  public:
     People();
     People(People& other);
 
@@ -26,7 +26,7 @@ public:
     Visitor getVisitor(const int& i) const;
     Worker getWorker(const int& i) const;
 
-private:
+  private:
     vector<Worker> workers;
     vector<Visitor> visitors;
 

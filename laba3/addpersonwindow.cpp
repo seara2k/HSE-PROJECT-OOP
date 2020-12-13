@@ -2,13 +2,11 @@
 #include "ui_addpersonwindow.h"
 
 AddPersonWindow::AddPersonWindow(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::AddPersonWindow)
-{
-    ui->setupUi(this);
+	QWidget(parent),
+	ui(new Ui::AddPersonWindow) {
+	ui->setupUi(this);
 }
 
-AddPersonWindow::~AddPersonWindow()
-{
-    delete ui;
+AddPersonWindow::~AddPersonWindow() {
+	delete ui;
 }

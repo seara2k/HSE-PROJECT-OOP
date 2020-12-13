@@ -3,23 +3,23 @@
 
 #include <QMainWindow>
 #include "addpersonwindow.h"
+#include <addmenuitem.h>
 #include "menu.h"
 #include "people.h"
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
-public:
+  public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void refreshitemList(const int& number);
     void refreshmenuList();
 
-private slots:
+  private slots:
     void on_menuList_itemClicked();
     void on_addButton_clicked();
     void on_deleteButton_clicked();
@@ -30,10 +30,10 @@ private slots:
 
     void on_pushButton_addPerson_clicked();
 
-private:
+  private:
     Ui::MainWindow *ui;
     AddPersonWindow *add;
-
+    AddMenuItem *addmenuitem;
     Menu menu;
     People people;
 };

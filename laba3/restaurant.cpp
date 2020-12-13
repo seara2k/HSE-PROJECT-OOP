@@ -20,16 +20,16 @@ int Restaurant::startPanel() {
     cin >> action;
     if (action == "1") {
         system(CLEAR);
-        return(1);
+        return (1);
     } else if (action == "2") {
         system(CLEAR);
-        return(2);
+        return (2);
     } else if (action == "3") {
         system(CLEAR);
-        return(3);
+        return (3);
     } else {
         system(CLEAR);
-        return(4);
+        return (4);
     }
 }
 

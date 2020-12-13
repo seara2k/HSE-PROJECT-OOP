@@ -98,8 +98,8 @@ int main(int argc, char *argv[]) {
 
 //    } while (index != 3);
 
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+	QApplication a(argc, argv);
+	MainWindow w;
+	w.show();
+	return a.exec();
 }

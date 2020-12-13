@@ -15,7 +15,7 @@ vector<MenuItem*> Menu::getItems() const {
 }
 
 MenuItem* Menu::getItem(const int &number) {
-    return items[number];
+	return items[number];
 }
 
 ostream& operator<<(ostream& stream, const Menu& menu) {
@@ -31,6 +31,6 @@ void Menu::addItem(MenuItem* menuitem) {
 }
 
 void Menu::deleteItem(const int &number) {
-	delete items[number - 1];
-	items.erase(items.begin() + number - 1);
+	delete items[number];
+	items.erase(items.begin() + number);
 }

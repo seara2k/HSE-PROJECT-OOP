@@ -6,7 +6,7 @@
 using namespace std;
 
 class Person { // abstract
-public:
+  public:
 
     Person();
     Person(const string& name, const string& surname);
@@ -21,10 +21,10 @@ public:
     virtual string getClassType() const = 0;
     bool operator==(const Person &other) const;
 
-protected:
+  protected:
     string state;
 
-private:
+  private:
     string name;
     string surname;
 

@@ -3,6 +3,7 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 
 SOURCES += \
+    addmenuitem.cpp \
     addpersonwindow.cpp \
     drink.cpp \
     food.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
     worker.cpp
 
 HEADERS += \
+    addmenuitem.h \
     addpersonwindow.h \
     drink.h \
     food.h \
@@ -33,5 +35,6 @@ HEADERS += \
 QT += widgets
 
 FORMS += \
+    addmenuitem.ui \
     addpersonwindow.ui \
     mainwindow.ui

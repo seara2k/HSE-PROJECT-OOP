@@ -8,6 +8,14 @@ Food::Food(const Food& other) {
 	this->portion_size_unit = other.portion_size_unit;
 	this->time_to_cook = other.time_to_cook;
 }
+Food::Food() {
+	this->name = "UNKNOWN";
+	this->price = 0;
+	this->amount = 0;
+	this->portion_size = 0;
+	this->portion_size_unit = "UNKNOWN";
+	this->time_to_cook = 0;
+}
 Food::Food(const string& name, const int& price, const int& amount, const int& portion_size, const string& portion_size_unit, const int& time_to_cook) {
 	this->name = name;
 	this->price = price;
@@ -30,7 +38,7 @@ string Food::getClassType() const {
 }
 
 void Food::print(ostream& stream, const MenuItem& menuitem) const {
-    stream << menuitem.getItem();
+	stream << menuitem.getItem();
 }
 void Food::read(istream& stream, MenuItem& menuitem) {
 	string new_name;
@@ -42,14 +50,14 @@ void Food::read(istream& stream, MenuItem& menuitem) {
 	stream >> new_name >> new_price >> new_amount >> new_portion_size >> new_portion_size_unit >> new_time_to_cook;
 	menuitem = Food(new_name, new_price, new_amount, new_portion_size, new_portion_size_unit, new_time_to_cook);
 }
-map<string,string> Food::getFull() const {
-    map<string,string> temp;
-    temp["1 Name"] = getName();
-    temp["2 Type"] = getClassType();
-    temp["3 Price"] = to_string(getPrice());
-    temp["4 Amount"] = to_string(getAmount());
-    temp["5 Portion Size"] = to_string(getPortionSize());
-    temp["6 Portion Size Unit"] = getPortionSizeUnit();
-    temp["7 Time To Cook"] = to_string(getTimeToCook());
-    return temp;
+map<string, string> Food::getFull() const {
+	map<string, string> temp;
+	temp["1  Name"] = getName();
+	temp["2  Type"] = getClassType();
+	temp["3  Price"] = to_string(getPrice());
+	temp["4  Amount"] = to_string(getAmount());
+	temp["5  Portion Size"] = to_string(getPortionSize());
+	temp["6  Portion Size Unit"] = getPortionSizeUnit();
+	temp["7  Time To Cook"] = to_string(getTimeToCook());
+	return temp;
 }

@@ -12,25 +12,25 @@ Person::Person(const string& n, const string& sn) {
 }
 
 Person::Person(const Person& other) {
-	this->name = other.name;
-	this->surname = other.surname;
-	this->state = other.state;
+    this->name = other.name;
+    this->surname = other.surname;
+    this->state = other.state;
 }
 
 string Person::getName() const {
-	return name;
+    return name;
 }
 
 string Person::getSurname() const {
-	return surname;
+    return surname;
 }
 
 string Person::getState() const {
-	return state;
+    return state;
 }
 
 void Person::setName(const string& name) {
-	this->name = name;
+    this->name = name;
 }
 
 void Person::setSurname(const string& surname) {
@@ -42,8 +42,7 @@ bool Person::operator==(const Person &other) const {
             (getSurname() == other.getSurname()) &&
             (getState() == other.getState())) {
         return 1;
-    }
-    else {
+    } else {
         return 0;
     }
 }

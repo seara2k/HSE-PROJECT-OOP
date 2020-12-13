@@ -10,7 +10,7 @@
 #endif
 
 class Restaurant {
-public:
+  public:
     Restaurant();
     Restaurant(Restaurant& other);
 
@@ -34,16 +34,16 @@ public:
     void addMenuItemPanel();
 
 
-	void openMenuPanel(); // opens menu panel for editing menu
-	void addItem(); // добавление
-	void delItem(); // удаление
-	void editItem(); // редактирование
+    void openMenuPanel(); // opens menu panel for editing menu
+    void addItem(); // добавление
+    void delItem(); // удаление
+    void editItem(); // редактирование
 
     void openWorkersPanel(); // показывает работников и че они делают (над) каким заказом работают
 
-private:
-	Menu menu;
-	People people;
+  private:
+    Menu menu;
+    People people;
 
 };
 
