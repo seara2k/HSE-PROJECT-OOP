@@ -111,37 +111,37 @@ void MainWindow::refreshInfo(const int& number) {
 }
 
 void MainWindow::getVisitorState(string& s) {
-    if (s == "is waiting for the waiter") {
+    if (s == "is_waiting_for_the_waiter") {
         s = "1";
     }
-    else if (s == "is waiting for order") {
+    else if (s == "is_waiting_for_order") {
         s = "2";
     }
-    else if (s == "is eating") {
+    else if (s == "is_eating") {
         s = "3";
     }
-    else if (s == "is paying") {
+    else if (s == "is_paying") {
         s = "4";
     }
 }
 
 void MainWindow::getWorkerState(string& s, const string& p) {
-    if ((s == "is cooking orders") && (p == "Cooker")) {
+    if ((s == "is_cooking_orders") && (p == "Cooker")) {
         s = "1";
     }
-    else if ((s == "is delivering orders") && (p == "Waiter")) {
+    else if ((s == "is_delivering_orders") && (p == "Waiter")) {
         s = "1";
     }
-    else if ((s == "is cleaning the restaurant") && (p == "Cleaner")) {
+    else if ((s == "is_cleaning_the_restaurant") && (p == "Cleaner")) {
         s = "1";
     }
-    else if (s == "waiting for work") {
+    else if (s == "waiting_for_work") {
         s = "2";
     }
-    else if (s == "is chilling") {
+    else if (s == "is_chilling") {
         s = "3";
     }
-    else if (s == "is not at work") {
+    else if (s == "is_not_at_work") {
         s = "4";
     }
 }
@@ -159,7 +159,7 @@ void MainWindow::getWorkerProf(string& s) {
 }
 
 void MainWindow::on_pushButton_addPerson_clicked() {
-    if (ui->comboBox->currentText() == "Посетителя") {
+    if (ui->comboBox->currentText() == "Visitor") {
         int i = people.visitorsNumber();
         Visitor tmp("name" + to_string(i), "surname" + to_string(i), "1");
         people.addVisitor(tmp);
@@ -169,7 +169,7 @@ void MainWindow::on_pushButton_addPerson_clicked() {
             ui->listWidget_visitors->addItem(tmp);
         }
     }
-    else if (ui->comboBox->currentText() == "Сотрудника") {
+    else if (ui->comboBox->currentText() == "Worker") {
         int i = people.workersNumber();
         Worker tmp("name" + to_string(i), "surname" + to_string(i), "1", "1");
         people.addWorker(tmp);
@@ -181,8 +181,6 @@ void MainWindow::on_pushButton_addPerson_clicked() {
     }
 
 }
-
-
 
 MainWindow::~MainWindow() {
     delete ui;
@@ -271,4 +269,47 @@ void MainWindow::on_pushButton_deletePerson_clicked() {
     ui->lineEdit_surname->setText("");
     ui->lineEdit_state->setText("");
     ui->lineEdit_prof->setText("");
+}
+
+void MainWindow::on_savePeopleButton_clicked()
+{
+    if (people.workersNumber() != 0) {
+        QString filename = QFileDialog::getSaveFileName(this,
+                           tr("Save menu to txt"), "",
+                           tr("Text files (*.txt)"));
+        if (!filename.isEmpty()) {
+            ofstream output(filename.toStdString());
+            output << people.workersNumber() << " ";
+            for (int i = 0; i < people.workersNumber(); i++) {
+                output << people.getWorker(i);
+            }
+        }
+    }
+}
+
+void MainWindow::on_getPeopleButton_clicked()
+{
+    int num;
+    string name, surname, state, prof;
+    QString filename = QFileDialog::getOpenFileName(this,
+                       tr("Open menu from txt"),"",tr("Text files (*.txt)"));
+    if (!filename.isEmpty()) {
+        ifstream input(filename.toStdString());
+        if (input) {
+            input >> num;
+            for (int i = 0; i < num; i++) {
+                input >> prof >> name >> surname >> state;
+                getWorkerState(state, prof);
+                getWorkerProf(prof);
+                Worker tmp(name, surname, state, prof);
+                people.addWorker(tmp);
+        }
+        }
+
+    }
+    ui->listWidget_workers->clear();
+    for (int i = 0; i < people.workersNumber(); i++) {
+        QString tmp = QString::fromStdString(people.getWorker(i).getName() + " " + people.getWorker(i).getSurname());
+        ui->listWidget_workers->addItem(tmp);
+    }
 }
