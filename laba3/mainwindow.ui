@@ -117,9 +117,9 @@
    <widget class="QPushButton" name="pushButton_addPerson">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>520</x>
       <y>340</y>
-      <width>121</width>
+      <width>110</width>
       <height>22</height>
      </rect>
     </property>
@@ -137,12 +137,12 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButton_changePerson">
     <property name="geometry">
      <rect>
-      <x>730</x>
+      <x>760</x>
       <y>340</y>
-      <width>80</width>
+      <width>105</width>
       <height>22</height>
      </rect>
     </property>
@@ -150,12 +150,12 @@
      <string>Изменить</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButton_deletePerson">
     <property name="geometry">
      <rect>
-      <x>870</x>
+      <x>875</x>
       <y>340</y>
-      <width>80</width>
+      <width>105</width>
       <height>22</height>
      </rect>
     </property>
@@ -284,19 +284,6 @@
      <set>Qt::AlignHCenter|Qt::AlignTop</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>400</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="saveButton">
     <property name="geometry">
      <rect>
@@ -323,6 +310,150 @@
      <string>Get</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>340</y>
+      <width>100</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Посетителя</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Сотрудника</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_name">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>380</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Имя:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_prof">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>470</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Профессия:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_state">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>440</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Статус:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_surname">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>410</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Фамилия:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_name">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>380</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_surname">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>410</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_state">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>440</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_prof">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>470</y>
+      <width>120</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -330,7 +461,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

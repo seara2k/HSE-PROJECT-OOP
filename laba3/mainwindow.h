@@ -18,6 +18,10 @@ class MainWindow : public QMainWindow {
     ~MainWindow();
     void refreshitemList(const int& number);
     void refreshmenuList();
+    void refreshInfo(const int& number);
+    void getVisitorState(string& s);
+    void getWorkerState(string& s, const string& p);
+    void getWorkerProf(string& s);
 
   private slots:
 
@@ -30,8 +34,14 @@ class MainWindow : public QMainWindow {
     void on_changeButton_clicked();
 
     void on_pushButton_addPerson_clicked();
+    void on_listWidget_visitors_itemClicked();
+    void on_listWidget_workers_itemClicked();
 
-  private:
+    void on_pushButton_changePerson_clicked();
+
+    void on_pushButton_deletePerson_clicked();
+
+private:
     Ui::MainWindow *ui;
     Menu menu;
     People people;

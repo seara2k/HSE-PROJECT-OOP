@@ -7,8 +7,8 @@ Worker::Worker() :
 
 Worker::Worker(const string& n, const string& sn, const string& s, const string& p) :
     Person(n, sn) {
+    setProf(p);
     setState(s);
-    this->prof = p;
 }
 
 Worker::Worker(const Worker& other) :
@@ -44,8 +44,10 @@ void Worker::setState(const string& i) {
             cout << "Error: you should define prof berofe defining state";
         }
     } else if (i == "2") {
-        this->state = "is chilling";
+        this->state = "waiting for work";
     } else if (i == "3") {
+        this->state = "is chilling";
+    } else if (i == "4") {
         this->state = "is not at work";
     } else {
         cout << "Error: incorrect index";
