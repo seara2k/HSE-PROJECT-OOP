@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_prof->setEnabled(false);
     ui->pushButton_deletePerson->setEnabled(false);
     ui->pushButton_changePerson->setEnabled(false);
+
+    ui->changeButton->setEnabled(false);
+    ui->deleteButton->setEnabled(false);
 }
 
 void MainWindow::refreshitemList(const int& number) {
@@ -16,6 +19,10 @@ void MainWindow::refreshitemList(const int& number) {
         ui->itemList->addItem(QString::fromStdString(item.first + " : " + item.second));
     }
     ui->itemList->setCurrentRow( ui->itemList->model()->rowCount() - 1);
+    if (menu.getItems().size() == 0)
+        ui->deleteButton->setEnabled(false);
+    else
+        ui->deleteButton->setEnabled(true);
 }
 void MainWindow::refreshmenuList() {
     ui->menuList->clear();
@@ -25,6 +32,10 @@ void MainWindow::refreshmenuList() {
         i++;
     }
     ui->menuList->setCurrentRow( ui->menuList->model()->rowCount() - 1);
+    if (menu.getItems().size() == 0)
+        ui->changeButton->setEnabled(false);
+    else
+        ui->changeButton->setEnabled(true);
 }
 
 void MainWindow::on_getButton_clicked() {
@@ -55,30 +66,29 @@ void MainWindow::on_menuList_itemClicked() {
     refreshitemList(current_number - 1);
 }
 void MainWindow::on_addButton_clicked() {
-    QString input1 = ui->menuNameEdit->toPlainText();
+    if (ui->typecomboBox->currentText() == "FOOD") {
+        Food *temp = new Food();
+        menu.addItem(temp);
+        refreshmenuList();
+        refreshitemList(menu.getItems().size() - 1);
+    }
 
-    if (!(input1.isEmpty())) {
-        if (input1 == "FOOD") {
-            Food *temp = new Food();
-            menu.addItem(temp);
-            refreshmenuList();
-            refreshitemList(menu.getItems().size() - 1);
-        }
-
-        else if (input1 == "DRINK") {
-            Drink *temp = new Drink();
-            menu.addItem(temp);
-            refreshmenuList();
-            refreshitemList(menu.getItems().size() - 1);
-        }
+    else if (ui->typecomboBox->currentText() == "DRINK") {
+        Drink *temp = new Drink();
+        menu.addItem(temp);
+        refreshmenuList();
+        refreshitemList(menu.getItems().size() - 1);
     }
 }
+
 void MainWindow::on_deleteButton_clicked() {
     if (menu.getItems().size() != 0) {
         int current_number =  ui->menuList->currentItem()->text().split("  ")[0].toInt();
         menu.deleteItem(current_number - 1);
         refreshmenuList();
         ui->itemList->clear();
+        if  (menu.getItems().size() == 0)
+            ui->deleteButton->setEnabled(false);
     }
 }
 
@@ -97,6 +107,8 @@ void MainWindow::on_changeButton_clicked() {
             menu.getItem(current_number - 1)->setPortionSize(input1.toInt());
         else if (current_field == 6)
             menu.getItem(current_number - 1)->setPortionSizeUnit(input1.toStdString());
+        else if (current_field == 7)
+            menu.getItem(current_number - 1)->setTimeToCook(input1.toInt());
         refreshmenuList();
         ui->menuList->setCurrentRow(current_number - 1);
         refreshitemList(current_number - 1);
@@ -113,14 +125,11 @@ void MainWindow::refreshInfo(const int& number) {
 void MainWindow::getVisitorState(string& s) {
     if (s == "is_waiting_for_the_waiter") {
         s = "1";
-    }
-    else if (s == "is_waiting_for_order") {
+    } else if (s == "is_waiting_for_order") {
         s = "2";
-    }
-    else if (s == "is_eating") {
+    } else if (s == "is_eating") {
         s = "3";
-    }
-    else if (s == "is_paying") {
+    } else if (s == "is_paying") {
         s = "4";
     }
 }
@@ -128,20 +137,15 @@ void MainWindow::getVisitorState(string& s) {
 void MainWindow::getWorkerState(string& s, const string& p) {
     if ((s == "is_cooking_orders") && (p == "Cooker")) {
         s = "1";
-    }
-    else if ((s == "is_delivering_orders") && (p == "Waiter")) {
+    } else if ((s == "is_delivering_orders") && (p == "Waiter")) {
         s = "1";
-    }
-    else if ((s == "is_cleaning_the_restaurant") && (p == "Cleaner")) {
+    } else if ((s == "is_cleaning_the_restaurant") && (p == "Cleaner")) {
         s = "1";
-    }
-    else if (s == "waiting_for_work") {
+    } else if (s == "waiting_for_work") {
         s = "2";
-    }
-    else if (s == "is_chilling") {
+    } else if (s == "is_chilling") {
         s = "3";
-    }
-    else if (s == "is_not_at_work") {
+    } else if (s == "is_not_at_work") {
         s = "4";
     }
 }
@@ -149,11 +153,9 @@ void MainWindow::getWorkerState(string& s, const string& p) {
 void MainWindow::getWorkerProf(string& s) {
     if (s == "Cooker") {
         s = "1";
-    }
-    else if (s == "Waiter") {
+    } else if (s == "Waiter") {
         s = "2";
-    }
-    else if (s == "Cleaner") {
+    } else if (s == "Cleaner") {
         s = "3";
     }
 }
@@ -168,8 +170,7 @@ void MainWindow::on_pushButton_addPerson_clicked() {
             QString tmp = QString::fromStdString(people.getVisitor(i).getName() + " " + people.getVisitor(i).getSurname());
             ui->listWidget_visitors->addItem(tmp);
         }
-    }
-    else if (ui->comboBox->currentText() == "Worker") {
+    } else if (ui->comboBox->currentText() == "Worker") {
         int i = people.workersNumber();
         Worker tmp("name" + to_string(i), "surname" + to_string(i), "1", "1");
         people.addWorker(tmp);
@@ -229,8 +230,7 @@ void MainWindow::on_pushButton_changePerson_clicked() {
         ui->listWidget_workers->setCurrentRow(-1);
         ui->pushButton_changePerson->setEnabled(false);
         ui->pushButton_deletePerson->setEnabled(false);
-    }
-    else {
+    } else {
         i = ui->listWidget_visitors->currentRow();
         string name = ui->lineEdit_name->text().toStdString();
         string surname = ui->lineEdit_surname->text().toStdString();
@@ -256,8 +256,7 @@ void MainWindow::on_pushButton_deletePerson_clicked() {
         ui->listWidget_workers->setCurrentRow(-1);
         ui->pushButton_changePerson->setEnabled(false);
         ui->pushButton_deletePerson->setEnabled(false);
-    }
-    else {
+    } else {
         i = ui->listWidget_visitors->currentRow();
         ui->listWidget_visitors->takeItem(i);
         people.deleteVisitor(i);
@@ -271,8 +270,7 @@ void MainWindow::on_pushButton_deletePerson_clicked() {
     ui->lineEdit_prof->setText("");
 }
 
-void MainWindow::on_savePeopleButton_clicked()
-{
+void MainWindow::on_savePeopleButton_clicked() {
     if (people.workersNumber() != 0) {
         QString filename = QFileDialog::getSaveFileName(this,
                            tr("Save menu to txt"), "",
@@ -287,12 +285,11 @@ void MainWindow::on_savePeopleButton_clicked()
     }
 }
 
-void MainWindow::on_getPeopleButton_clicked()
-{
+void MainWindow::on_getPeopleButton_clicked() {
     int num;
     string name, surname, state, prof;
     QString filename = QFileDialog::getOpenFileName(this,
-                       tr("Open menu from txt"),"",tr("Text files (*.txt)"));
+                       tr("Open menu from txt"), "", tr("Text files (*.txt)"));
     if (!filename.isEmpty()) {
         ifstream input(filename.toStdString());
         if (input) {
@@ -303,7 +300,7 @@ void MainWindow::on_getPeopleButton_clicked()
                 getWorkerProf(prof);
                 Worker tmp(name, surname, state, prof);
                 people.addWorker(tmp);
-        }
+            }
         }
 
     }

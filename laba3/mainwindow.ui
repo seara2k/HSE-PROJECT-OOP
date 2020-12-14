@@ -222,16 +222,6 @@
      <string>Delete</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="menuNameEdit">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>330</y>
-      <width>140</width>
-      <height>30</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QTextEdit" name="changeEdit">
     <property name="geometry">
      <rect>
@@ -480,6 +470,26 @@
      <string>Get</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="typecomboBox">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>330</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>FOOD</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>DRINK</string>
+     </property>
+    </item>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -487,7 +497,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
