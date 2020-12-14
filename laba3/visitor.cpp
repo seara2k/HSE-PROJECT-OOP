@@ -17,13 +17,13 @@ Visitor::Visitor(const Visitor& other) :
 
 void Visitor::setState(const string& i) {
     if (i == "1") {
-        this->state = "is waiting for the waiter";
+        this->state = "is_waiting_for_the_waiter";
     } else if (i == "2") {
-        this->state = "is waiting for order";
+        this->state = "is_waiting_for_order";
     } else if (i == "3") {
-        this->state = "is eating";
+        this->state = "is_eating";
     } else if (i == "4") {
-        this->state = "is paying";
+        this->state = "is_paying";
     } else {
         cout << "Error: incorrect index\n";
     }

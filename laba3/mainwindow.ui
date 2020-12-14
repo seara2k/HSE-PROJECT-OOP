@@ -113,6 +113,11 @@
       <height>250</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushButton_addPerson">
     <property name="geometry">
@@ -135,6 +140,11 @@
       <width>220</width>
       <height>250</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_changePerson">
@@ -409,7 +419,7 @@
      <rect>
       <x>760</x>
       <y>380</y>
-      <width>120</width>
+      <width>160</width>
       <height>20</height>
      </rect>
     </property>
@@ -419,7 +429,7 @@
      <rect>
       <x>760</x>
       <y>410</y>
-      <width>120</width>
+      <width>160</width>
       <height>20</height>
      </rect>
     </property>
@@ -429,7 +439,7 @@
      <rect>
       <x>760</x>
       <y>440</y>
-      <width>120</width>
+      <width>160</width>
       <height>20</height>
      </rect>
     </property>
@@ -439,7 +449,7 @@
      <rect>
       <x>760</x>
       <y>470</y>
-      <width>120</width>
+      <width>160</width>
       <height>20</height>
      </rect>
     </property>
@@ -497,7 +507,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
