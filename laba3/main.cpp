@@ -59,62 +59,6 @@ int main(int argc, char *argv[]) {
 	menu.deleteItem(0);
 	assert(menu.getItems().size() == 0);
 
-//    Visitor Ivan, Owan;
-//    Ivan.setName("Ivan");
-//    Ivan.setName("Ivanov");
-//    Owan.setName("Ivan");
-//    Owan.setName("Ivanov");
-//    if (Owan == Ivan) {
-//        cout << "POGGERS: "<< endl;
-//    }
-//    Worker work1, work2, work3, work4, temp;
-//    work1.setName("worker 1");
-//    work2.setName("worker 2");
-//    work3.setName("worker 3");
-//    work4.setName("worker 3");
-
-//    work1.setProf("1");
-//    work2.setProf("2");
-//    work3.setProf("3");
-//    work4.setProf("3");
-
-//    work1.setState("1");
-//    work2.setState("1");
-//    work3.setState("1");
-//    work4.setState("1");
-
-
-//    // тестирование Worker
-//    People people;
-//    people.addWorker(work1);
-//    people.addWorker(work2);
-//    people.addWorker(work3);
-//    people.addWorker(work4);
-//    people.setWorker(work4, 1);
-//    people.printWorkers();
-//    cout << people.workersNumber() << endl;
-
-//    int index;
-//    Restaurant r;
-//    do {
-//        index = r.startPanel();
-//        if (index == 1) {
-//            //r.menuPanel();
-//            cout << "1\n\n";
-//        }
-//        else if (index == 2) {
-//            cout << "2\n\n";
-//            //r.peoplePanel();
-//        }
-//        else if (index == 3) {
-//            break;
-//        }
-//        else {
-//            cout << "Error: wrong index entered\n\n";
-//        }
-
-//    } while (index != 3);
-
 	QApplication a(argc, argv);
 	MainWindow w;
 	w.show();

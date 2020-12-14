@@ -35,6 +35,4 @@ HEADERS += \
 QT += widgets
 
 FORMS += \
-    addmenuitem.ui \
-    addpersonwindow.ui \
     mainwindow.ui

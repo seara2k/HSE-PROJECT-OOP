@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->lineEdit_prof->setEnabled(false);
     ui->pushButton_deletePerson->setEnabled(false);
+    ui->pushButton_changePerson->setEnabled(false);
 }
 
 void MainWindow::refreshitemList(const int& number) {
@@ -191,6 +192,7 @@ MainWindow::~MainWindow() {
 void MainWindow::on_listWidget_visitors_itemClicked() {
     ui->listWidget_workers->setCurrentRow(-1);
     ui->pushButton_deletePerson->setEnabled(true);
+    ui->pushButton_changePerson->setEnabled(true);
     int i = ui->listWidget_visitors->currentRow();
     ui->lineEdit_name->setText(QString::fromStdString(people.getVisitor(i).getName()));
     ui->lineEdit_surname->setText(QString::fromStdString(people.getVisitor(i).getSurname()));
@@ -202,6 +204,7 @@ void MainWindow::on_listWidget_visitors_itemClicked() {
 void MainWindow::on_listWidget_workers_itemClicked() {
     ui->listWidget_visitors->setCurrentRow(-1);
     ui->pushButton_deletePerson->setEnabled(true);
+    ui->pushButton_changePerson->setEnabled(true);
     int i = ui->listWidget_workers->currentRow();
     ui->lineEdit_name->setText(QString::fromStdString(people.getWorker(i).getName()));
     ui->lineEdit_surname->setText(QString::fromStdString(people.getWorker(i).getSurname()));
@@ -225,6 +228,9 @@ void MainWindow::on_pushButton_changePerson_clicked() {
         ui->listWidget_workers->takeItem(i);
         QString str = QString::fromStdString(people.getWorker(i).getName() + " " + people.getWorker(i).getSurname());
         ui->listWidget_workers->insertItem(i, str);
+        ui->listWidget_workers->setCurrentRow(-1);
+        ui->pushButton_changePerson->setEnabled(false);
+        ui->pushButton_deletePerson->setEnabled(false);
     }
     else {
         i = ui->listWidget_visitors->currentRow();
@@ -237,6 +243,9 @@ void MainWindow::on_pushButton_changePerson_clicked() {
         ui->listWidget_visitors->takeItem(i);
         QString str = QString::fromStdString(people.getVisitor(i).getName() + " " + people.getVisitor(i).getSurname());
         ui->listWidget_visitors->insertItem(i, str);
+        ui->listWidget_visitors->setCurrentRow(-1);
+        ui->pushButton_changePerson->setEnabled(false);
+        ui->pushButton_deletePerson->setEnabled(false);
     }
 }
 
@@ -247,6 +256,7 @@ void MainWindow::on_pushButton_deletePerson_clicked() {
         ui->listWidget_workers->takeItem(i);
         people.deleteWorker(i);
         ui->listWidget_workers->setCurrentRow(-1);
+        ui->pushButton_changePerson->setEnabled(false);
         ui->pushButton_deletePerson->setEnabled(false);
     }
     else {
@@ -254,6 +264,7 @@ void MainWindow::on_pushButton_deletePerson_clicked() {
         ui->listWidget_visitors->takeItem(i);
         people.deleteVisitor(i);
         ui->listWidget_visitors->setCurrentRow(-1);
+        ui->pushButton_changePerson->setEnabled(false);
         ui->pushButton_deletePerson->setEnabled(false);
     }
     ui->lineEdit_name->setText("");
