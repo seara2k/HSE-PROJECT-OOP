@@ -56,3 +56,5 @@ istream& operator>>(istream& stream, MenuItem& menuitem) {
 	menuitem.read(stream);
 	return stream;
 }
+
+//

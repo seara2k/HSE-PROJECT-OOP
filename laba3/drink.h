@@ -23,4 +23,4 @@ class Drink: public MenuItem {
 
 #endif // DRINK_H
 
-// Напитки из меню
+//

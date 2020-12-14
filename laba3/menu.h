@@ -33,4 +33,4 @@ istream& operator>>(istream& stream, Menu& menu);
 ostream& operator<<(ostream& stream, const Menu& menu);
 #endif // MENU_H
 
-// Меню
+//

@@ -26,4 +26,4 @@ class Food: public MenuItem {
 
 #endif // FOOD_H
 
-// Еда из меню
+//

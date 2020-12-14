@@ -64,3 +64,5 @@ map<string, string> Food::getFull() const {
 	temp["7  Time To Cook"] = to_string(getTimeToCook());
 	return temp;
 }
+
+//

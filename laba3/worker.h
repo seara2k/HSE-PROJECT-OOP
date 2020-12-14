@@ -29,3 +29,5 @@ ostream& operator<<(ostream& stream, const Worker& worker);
 istream& operator>>(istream& stream, Worker& worker);
 
 #endif // WORKER_H
+
+//

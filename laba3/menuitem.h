@@ -46,4 +46,4 @@ istream& operator>>(istream& stream, MenuItem& menuitem);
 
 #endif // MENUITEM_H
 
-// Еда или напиток из меню
+//

@@ -40,3 +40,5 @@ string Visitor::getInfo() const {
 string Visitor::getClassType() const {
     return "Visitor";
 }
+
+//

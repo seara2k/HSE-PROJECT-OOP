@@ -96,3 +96,5 @@ istream& operator>>(istream& stream, Worker& worker) {
     worker.read(stream);
     return stream;
 }
+
+//
