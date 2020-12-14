@@ -107,7 +107,7 @@ void MainWindow::on_changeButton_clicked() {
             menu.getItem(current_number - 1)->setPortionSize(input1.toInt());
         else if (current_field == 6)
             menu.getItem(current_number - 1)->setPortionSizeUnit(input1.toStdString());
-        else if (current_field == 7)
+        else if (current_field == 7  && input1.toInt() > 0)
             menu.getItem(current_number - 1)->setTimeToCook(input1.toInt());
         refreshmenuList();
         ui->menuList->setCurrentRow(current_number - 1);
