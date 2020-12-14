@@ -35,22 +35,23 @@ void  Worker::setProf(const string& prof) {
 void Worker::setState(const string& i) {
     if (i == "1") {
         if (prof == "Cooker") {
-            this->state = "is cooking orders";
+            this->state = "is_cooking_orders";
         } else if (prof == "Waiter") {
-            this->state = "is delivering orders";
+            this->state = "is_delivering_orders";
         } else if (prof == "Cleaner") {
-            this->state = "is cleaning the restaurant";
+            this->state = "is_cleaning_the_restaurant";
         } else {
             cout << "Error: you should define prof berofe defining state";
         }
     } else if (i == "2") {
-        this->state = "waiting for work";
+        this->state = "waiting_for_work";
     } else if (i == "3") {
-        this->state = "is chilling";
+        this->state = "is_chilling";
     } else if (i == "4") {
-        this->state = "is not at work";
+        this->state = "is_not_at_work";
     } else {
         cout << "Error: incorrect index";
+        this->state = "is_not_at_work";
     }
 }
 
@@ -58,6 +59,40 @@ void Worker::printInfo() const {
     cout << getProf() << " " << getName() << " " << getSurname() << " " << getState() << endl;
 }
 
+string Worker::getInfo() const {
+    return getProf() + " " + getName() + " " + getSurname() + " " + getState() + " ";
+}
+
 string Worker::getClassType() const {
     return "Worker";
+}
+
+bool Worker::operator==(const Worker &other) const {
+    if ((getName() == other.getName()) &&
+            (getSurname() == other.getSurname()) &&
+            (getState() == other.getState()) &&
+            (getProf() == other.getProf())) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+void Worker::print(ostream& stream) const {
+    stream << getInfo();
+}
+
+void Worker::read(istream & stream) {
+    string name, surname, state, prof;
+    stream >> prof >> name >> surname >> state;
+    *this = Worker(name, surname, state, prof);
+}
+
+ostream& operator<<(ostream& stream, const Worker& worker) {
+    worker.print(stream);
+    return stream;
+}
+istream& operator>>(istream& stream, Worker& worker) {
+    worker.read(stream);
+    return stream;
 }

@@ -12,7 +12,8 @@ class Visitor: public Person {
 	Visitor(const string& name, const string& surname, const string& state);
 	Visitor(const Visitor& other);
 	void setState(const string& i) override;
-	void printInfo() const override;
+    void printInfo() const override;
+    string getInfo() const override;
 	string getClassType() const override;
 
   private:

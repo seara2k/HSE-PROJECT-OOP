@@ -41,6 +41,10 @@ class MainWindow : public QMainWindow {
 
     void on_pushButton_deletePerson_clicked();
 
+    void on_savePeopleButton_clicked();
+
+    void on_getPeopleButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Menu menu;

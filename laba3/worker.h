@@ -15,10 +15,17 @@ class Worker: public Person {
 	void setProf(const string& prof);
 	void setState(const string& i) override;
 	void printInfo() const override;
+    string getInfo() const override;
+    void print(ostream& stream) const;
+    void read(istream& stream);
 	string getClassType() const override;
+    bool operator==(const Worker &other) const;
 
   private:
 	string prof; // профессия работника
 };
+
+ostream& operator<<(ostream& stream, const Worker& worker);
+istream& operator>>(istream& stream, Worker& worker);
 
 #endif // WORKER_H

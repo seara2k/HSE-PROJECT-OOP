@@ -18,6 +18,7 @@ class Person { // abstract
     void setSurname(const string& surname);
     virtual void setState(const string& i) = 0;
     virtual void printInfo() const = 0;
+    virtual string getInfo() const = 0;
     virtual string getClassType() const = 0;
     bool operator==(const Person &other) const;
 

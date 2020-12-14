@@ -1,0 +1,4 @@
+FOOD name 10 100 1000 ml 500
+FOOD name1 20 200 2000 metres 900
+DRINK name2 30 300 3000 centimetres
+DRINK name3 40 400 4000 lirtes

@@ -33,6 +33,10 @@ void Visitor::printInfo() const {
     cout << getName() << " " << getSurname() << " " << getState() << endl;
 }
 
+string Visitor::getInfo() const {
+    return getName() + " " + getSurname() + " " + getState();
+}
+
 string Visitor::getClassType() const {
     return "Visitor";
 }
