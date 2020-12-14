@@ -17,7 +17,7 @@ class MenuItem { //abstract
     int getAmount() const;
     int getPortionSize() const;
     string getPortionSizeUnit() const;
-    virtual int getTimeToCook() const {};
+    virtual int getTimeToCook() const {return 0;};
     virtual void setTimeToCook(const int& time_to_cook) {};
 
     virtual void print(ostream& stream) const = 0;
