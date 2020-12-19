@@ -78,7 +78,8 @@ Hash<K, V>::Hash(const Hash& other) {
 
 template<typename K, typename V>
 void Hash<K, V>::clear() {
-    vector<vector<pair<K, V>>> hash_table = vector<vector<pair<K, V>>>(256);
+     hash_table.clear();
+     hash_table = vector<vector<pair<K, V>>>(256);
      hash_size = 0;
 }
 

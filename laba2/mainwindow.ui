@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>539</width>
-    <height>359</height>
+    <width>583</width>
+    <height>347</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>270</y>
+      <y>260</y>
       <width>61</width>
       <height>26</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>270</y>
+      <y>260</y>
       <width>61</width>
       <height>26</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>270</y>
+      <y>260</y>
       <width>61</width>
       <height>26</height>
      </rect>
@@ -70,7 +70,7 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>270</y>
+      <y>260</y>
       <width>61</width>
       <height>26</height>
      </rect>
@@ -112,7 +112,7 @@
    <widget class="QListWidget" name="valuesWidget">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>320</x>
       <y>70</y>
       <width>251</width>
       <height>192</height>
@@ -122,8 +122,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>7</y>
+      <x>180</x>
+      <y>10</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -135,7 +135,7 @@
    <widget class="QTextEdit" name="vectorInputEdit">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>320</x>
       <y>40</y>
       <width>251</width>
       <height>31</height>
@@ -145,7 +145,7 @@
    <widget class="QPushButton" name="getValuesButton">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>320</x>
       <y>270</y>
       <width>80</width>
       <height>26</height>
@@ -155,13 +155,52 @@
      <string>GetValues</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>10</y>
+      <width>251</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter a vector of keys to get values:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>81</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>key</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>value</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>539</width>
+     <width>583</width>
      <height>23</height>
     </rect>
    </property>
